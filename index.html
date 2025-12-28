@@ -3,203 +3,217 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Super Tips Bet | Premium Betting Tips</title>
+    <title>Super Tips Bet | All Sports Predictions</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
     <style>
         :root {
-            --primary-color: #2ecc71; /* Green */
-            --secondary-color: #f1c40f; /* Gold */
-            --bg-dark: #1a1a1a;
-            --card-bg: #2d2d2d;
-            --text-light: #ffffff;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
+            --primary: #2ecc71; 
+            --gold: #f1c40f;
+            --bg: #121212;
+            --card: #1e1e1e;
+            --text: #ffffff;
         }
 
         body {
-            background-color: var(--bg-dark);
-            color: var(--text-light);
-            line-height: 1.6;
+            background-color: var(--bg);
+            color: var(--text);
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding-bottom: 50px;
         }
 
-        /* Header */
         header {
-            background: linear-gradient(135deg, #111, #222);
-            padding: 20px;
+            background: #000;
+            padding: 15px;
             text-align: center;
-            border-bottom: 3px solid var(--primary-color);
-            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+            border-bottom: 2px solid var(--primary);
         }
 
-        header h1 {
-            color: var(--secondary-color);
-            font-size: 2rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
+        /* Category Tabs */
+        .tabs {
+            display: flex;
+            justify-content: center;
+            background: #222;
+            padding: 10px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
 
-        /* Hero Section */
-        .hero {
-            padding: 40px 20px;
-            text-align: center;
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1508098682722-e99c43a406b2?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
-            background-size: cover;
-            background-position: center;
+        .tab-btn {
+            background: none;
+            border: none;
+            color: #888;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: 0.3s;
         }
 
-        .hero p {
-            font-size: 1.2rem;
-            color: #ddd;
-            margin-bottom: 20px;
+        .tab-btn.active {
+            color: var(--primary);
+            border-bottom: 2px solid var(--primary);
         }
 
-        /* Prediction Card */
+        .tab-btn i { margin-right: 5px; }
+
+        /* Container */
         .container {
-            max-width: 800px;
-            margin: -30px auto 40px;
+            max-width: 900px;
+            margin: 20px auto;
             padding: 0 15px;
         }
 
-        .match-card {
-            background: var(--card-bg);
-            border-radius: 15px;
-            padding: 20px;
-            margin-bottom: 20px;
-            border-left: 5px solid var(--primary-color);
-            transition: transform 0.3s ease;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+        .section-title {
+            color: var(--gold);
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+            border-left: 4px solid var(--primary);
+            padding-left: 10px;
         }
 
-        .match-card:hover {
-            transform: translateY(-5px);
+        /* Match Card */
+        .match-card {
+            background: var(--card);
+            border-radius: 12px;
+            margin-bottom: 25px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+        }
+
+        .match-header {
+            background: #2a2a2a;
+            padding: 10px 15px;
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.85rem;
+        }
+
+        .match-body {
+            padding: 15px;
+            text-align: center;
         }
 
         .teams {
-            flex: 2;
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 15px;
         }
 
-        .teams h3 {
-            font-size: 1.1rem;
+        /* Tips Row */
+        .tips-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+        }
+
+        .tip-box {
+            background: #252525;
+            padding: 10px 5px;
+            border-radius: 8px;
+            border: 1px solid #333;
+        }
+
+        .tip-label {
+            display: block;
+            font-size: 0.7rem;
+            color: var(--gold);
+            text-transform: uppercase;
             margin-bottom: 5px;
         }
 
-        .league {
-            font-size: 0.8rem;
-            color: var(--secondary-color);
-            text-transform: uppercase;
-        }
-
-        .prediction {
-            text-align: right;
-            flex: 1;
-        }
-
-        .tip-badge {
-            background: var(--primary-color);
-            color: black;
-            padding: 5px 15px;
-            border-radius: 20px;
+        .tip-value {
+            display: block;
             font-weight: bold;
-            display: inline-block;
+            font-size: 0.9rem;
+            color: var(--primary);
         }
 
         .odds {
-            display: block;
-            margin-top: 5px;
-            font-size: 1.2rem;
-            font-weight: bold;
-            color: var(--secondary-color);
+            font-size: 0.8rem;
+            color: #aaa;
         }
 
-        /* Footer */
-        footer {
-            text-align: center;
-            padding: 30px;
-            background: #111;
-            font-size: 0.9rem;
-            color: #666;
-        }
-
-        .btn-vip {
-            background: var(--secondary-color);
-            color: black;
-            padding: 12px 30px;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: bold;
-            display: inline-block;
-            margin-top: 20px;
-            transition: background 0.3s;
-        }
-
-        .btn-vip:hover {
-            background: #d4ac0d;
-        }
+        footer { text-align: center; color: #555; font-size: 0.8rem; margin-top: 30px; }
     </style>
 </head>
 <body>
 
     <header>
-        <h1><i class="fas fa-futbol"></i> SUPER TIPS BET</h1>
+        <h1 style="color: var(--gold); font-size: 1.5rem;">SUPER TIPS EXPERT</h1>
     </header>
 
-    <section class="hero">
-        <h2>Today's Winning Predictions</h2>
-        <p>High accuracy tips from professional analysts.</p>
-        <a href="#" class="btn-vip">JOIN VIP TELEGRAM</a>
-    </section>
+    <div class="tabs">
+        <button class="tab-btn active"><i class="fas fa-futbol"></i> Football</button>
+        <button class="tab-btn"><i class="fas fa-baseball-ball"></i> Cricket</button>
+        <button class="tab-btn"><i class="fas fa-table-tennis"></i> Tennis</button>
+    </div>
 
     <div class="container">
+        <h2 class="section-title">Today's Featured Matches</h2>
+
         <div class="match-card">
-            <div class="teams">
-                <span class="league">Premier League</span>
-                <h3>Arsenal vs Liverpool</h3>
-                <small><i class="far fa-clock"></i> 21:00 PM</small>
+            <div class="match-header">
+                <span><i class="fas fa-trophy"></i> Champions League</span>
+                <span>20:45 PM</span>
             </div>
-            <div class="prediction">
-                <span class="tip-badge">Home Win</span>
-                <span class="odds">1.85</span>
+            <div class="match-body">
+                <div class="teams">Man City vs Real Madrid</div>
+                
+                <div class="tips-grid">
+                    <div class="tip-box">
+                        <span class="tip-label">Tip 1: Winner</span>
+                        <span class="tip-value">Home Win</span>
+                        <span class="odds">1.90</span>
+                    </div>
+                    <div class="tip-box">
+                        <span class="tip-label">Tip 2: 1.5 U/O</span>
+                        <span class="tip-value">Over 1.5</span>
+                        <span class="odds">1.25</span>
+                    </div>
+                    <div class="tip-box">
+                        <span class="tip-label">Tip 3: 2.5 U/O</span>
+                        <span class="tip-value">Over 2.5</span>
+                        <span class="odds">1.75</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="match-card">
+            <div class="match-header">
+                <span><i class="fas fa-baseball-ball"></i> Big Bash League</span>
+                <span>13:30 PM</span>
+            </div>
+            <div class="match-body">
+                <div class="teams">Sydney Sixers vs Perth Scorchers</div>
+                
+                <div class="tips-grid">
+                    <div class="tip-box">
+                        <span class="tip-label">Tip 1: Winner</span>
+                        <span class="tip-value">Away Win</span>
+                        <span class="odds">1.80</span>
+                    </div>
+                    <div class="tip-box">
+                        <span class="tip-label">Tip 2: 1.5 U/O</span>
+                        <span class="tip-value">Over 1.5 (6s)</span>
+                        <span class="odds">1.40</span>
+                    </div>
+                    <div class="tip-box">
+                        <span class="tip-label">Tip 3: 2.5 U/O</span>
+                        <span class="tip-value">Under 2.5 (Wkt)</span>
+                        <span class="odds">2.10</span>
+                    </div>
+                </div>
             </div>
         </div>
 
-        <div class="match-card">
-            <div class="teams">
-                <span class="league">La Liga</span>
-                <h3>Real Madrid vs Barcelona</h3>
-                <small><i class="far fa-clock"></i> 23:45 PM</small>
-            </div>
-            <div class="prediction">
-                <span class="tip-badge">Over 2.5</span>
-                <span class="odds =">1.60</span>
-            </div>
-        </div>
-
-        <div class="match-card">
-            <div class="teams">
-                <span class="league">Serie A</span>
-                <h3>Inter Milan vs Juventus</h3>
-                <small><i class="far fa-clock"></i> 20:30 PM</small>
-            </div>
-            <div class="prediction">
-                <span class="tip-badge">BTTS - Yes</span>
-                <span class="odds">1.95</span>
-            </div>
-        </div>
     </div>
 
     <footer>
-        <p>&copy; 2025 Super Tips Bet. All Rights Reserved.</p>
-        <p>18+ Gamble Responsibly.</p>
+        <p>&copy; 2025 Professional Betting Tips | 18+ Only</p>
     </footer>
 
 </body>
