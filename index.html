@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Super Tips Expert | Pro Dashboard</title>
-    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <title>Super Tips Expert | Elite Betting UI</title>
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
@@ -12,227 +12,206 @@
             --neon-green: #00ff88;
             --neon-blue: #00d4ff;
             --neon-gold: #ffcc00;
-            --dark-bg: #0a0b10;
-            --glass: rgba(255, 255, 255, 0.05);
-            --glass-border: rgba(255, 255, 255, 0.1);
+            --dark-bg: #0d0e14;
+            --card-bg: #161b22;
+            --border: rgba(255, 255, 255, 0.1);
         }
 
         body {
             background-color: var(--dark-bg);
-            color: white;
+            color: #ffffff;
             font-family: 'Inter', sans-serif;
             margin: 0;
-            background-image: radial-gradient(circle at top right, #1a2a6c, transparent), 
-                              radial-gradient(circle at bottom left, #b21f1f, transparent);
-            background-attachment: fixed;
-            min-height: 100vh;
+            padding-bottom: 40px;
         }
 
+        /* Header */
         header {
-            padding: 30px 20px;
+            padding: 25px;
             text-align: center;
-            background: rgba(0, 0, 0, 0.4);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid var(--glass-border);
+            background: rgba(0,0,0,0.5);
+            border-bottom: 2px solid var(--neon-green);
         }
 
         header h1 {
             font-family: 'Rajdhani', sans-serif;
-            font-size: 2.5rem;
+            font-size: 2rem;
             margin: 0;
-            text-transform: uppercase;
-            letter-spacing: 3px;
             background: linear-gradient(to right, var(--neon-green), var(--neon-blue));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            text-transform: uppercase;
         }
 
-        /* Modern Tabs */
-        .nav-container {
+        /* Tabs */
+        .tabs-container {
             display: flex;
             justify-content: center;
-            gap: 15px;
-            padding: 20px;
+            gap: 10px;
+            padding: 15px;
             position: sticky;
             top: 0;
+            background: var(--dark-bg);
             z-index: 1000;
-            background: rgba(10, 11, 16, 0.8);
-            backdrop-filter: blur(15px);
+            border-bottom: 1px solid var(--border);
         }
 
-        .nav-btn {
-            background: var(--glass);
-            border: 1px solid var(--glass-border);
-            color: #ccc;
-            padding: 12px 25px;
-            border-radius: 12px;
+        .tab-btn {
+            background: #21262d;
+            border: 1px solid var(--border);
+            color: #8b949e;
+            padding: 12px 18px;
+            border-radius: 10px;
             cursor: pointer;
-            font-family: 'Rajdhani', sans-serif;
             font-weight: 600;
-            font-size: 1.1rem;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            display: flex;
-            align-items: center;
-            gap: 10px;
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 1rem;
+            flex: 1;
+            max-width: 120px;
+            transition: 0.3s;
         }
 
-        .nav-btn i { font-size: 1.2rem; }
-
-        .nav-btn:hover { background: rgba(255,255,255,0.1); color: white; transform: translateY(-3px); }
-
-        .nav-btn.active {
-            background: linear-gradient(135deg, var(--neon-green), #00a86b);
+        .tab-btn.active {
+            background: var(--neon-green);
             color: #000;
-            border-color: transparent;
-            box-shadow: 0 0 20px rgba(0, 255, 136, 0.4);
+            border-color: var(--neon-green);
+            box-shadow: 0 0 15px rgba(0, 255, 136, 0.3);
         }
 
-        /* Match Cards Grid */
+        /* Content Sections */
         .content-section {
             display: none;
-            max-width: 1100px;
+            max-width: 900px;
             margin: 20px auto;
-            padding: 0 20px;
-            animation: slideUp 0.6s ease forwards;
+            padding: 0 15px;
+            animation: fadeIn 0.4s ease-in;
         }
 
-        @keyframes slideUp {
-            from { opacity: 0; transform: translateY(30px); }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
-        .content-section.active { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 20px; }
+        .content-section.active {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 15px;
+        }
 
+        /* Match Card Style */
         .match-card {
-            background: var(--glass);
-            backdrop-filter: blur(5px);
-            border-radius: 20px;
-            border: 1px solid var(--glass-border);
-            padding: 20px;
-            transition: 0.3s;
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 15px;
             position: relative;
-            overflow: hidden;
+            transition: 0.3s;
         }
 
-        .match-card::before {
-            content: ''; position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: var(--neon-blue);
+        .match-card:hover {
+            border-color: var(--neon-blue);
+            transform: translateY(-3px);
         }
 
-        .match-card:hover { border-color: var(--neon-blue); transform: scale(1.02); background: rgba(255,255,255,0.08); }
+        .league {
+            color: var(--neon-gold);
+            font-size: 0.7rem;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
 
-        .league-tag { color: var(--neon-gold); font-size: 0.75rem; font-weight: 700; text-transform: uppercase; margin-bottom: 10px; display: block; }
+        .teams {
+            font-size: 1.1rem;
+            font-weight: bold;
+            margin: 10px 0;
+            display: block;
+        }
 
-        .team-row { font-size: 1.2rem; font-weight: 600; margin-bottom: 20px; letter-spacing: 0.5px; }
+        .tips-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
 
-        .tips-container { display: flex; flex-direction: column; gap: 10px; }
-
-        .tip-item {
+        .tip-row {
             display: flex;
             justify-content: space-between;
-            align-items: center;
-            background: rgba(0,0,0,0.3);
-            padding: 10px 15px;
-            border-radius: 10px;
-            border: 1px solid rgba(255,255,255,0.05);
+            background: rgba(255,255,255,0.03);
+            padding: 8px 12px;
+            border-radius: 8px;
+            font-size: 0.85rem;
         }
 
-        .tip-name { font-size: 0.8rem; color: #aaa; }
-        .tip-pick { color: var(--neon-green); font-weight: 700; font-family: 'Rajdhani', sans-serif; font-size: 1rem; }
+        .tip-label { color: #8b949e; }
+        .tip-pick { color: var(--neon-green); font-weight: bold; }
 
-        /* Style for Cricket and Tennis headers */
-        #cricket .match-card::before { background: var(--neon-gold); }
-        #tennis .match-card::before { background: #ff0077; }
+        /* Specific border colors for sports */
+        .football-card { border-left: 4px solid var(--neon-green); }
+        .cricket-card { border-left: 4px solid var(--neon-gold); }
+        .tennis-card { border-left: 4px solid var(--neon-blue); }
 
     </style>
 </head>
 <body>
 
     <header>
-        <h1><i class="fas fa-chart-line"></i> SUPER TIPS EXPERT</h1>
+        <h1>SUPER TIPS EXPERT</h1>
     </header>
 
-    <div class="nav-container">
-        <button class="nav-btn active" onclick="openSport('football', this)"><i class="fas fa-futbol"></i> Football</button>
-        <button class="nav-btn" onclick="openSport('cricket', this)"><i class="fas fa-baseball-ball"></i> Cricket</button>
-        <button class="nav-btn" onclick="openSport('tennis', this)"><i class="fas fa-table-tennis"></i> Tennis</button>
+    <div class="tabs-container">
+        <button class="tab-btn active" onclick="showSport('football', this)">FOOTBALL</button>
+        <button class="tab-btn" onclick="showSport('cricket', this)">CRICKET</button>
+        <button class="tab-btn" onclick="showSport('tennis', this)">TENNIS</button>
     </div>
 
     <div id="football" class="content-section active">
-        <script>
-            const fbMatches = [
-                ['Premier League', 'Arsenal vs Chelsea', 'Home Win', 'Over 1.5', 'Over 2.5'],
-                ['La Liga', 'Real Madrid vs Sevilla', 'Home Win', 'Over 1.5', 'Under 3.5'],
-                ['Bundesliga', 'Bayern vs Dortmund', 'Over 2.5', 'BTTS Yes', 'Over 1.5'],
-                ['Serie A', 'Juventus vs AC Milan', 'Draw', 'Under 2.5', 'Under 1.5'],
-                ['Ligue 1', 'PSG vs Lyon', 'Home Win', 'Over 2.5', 'Over 1.5'],
-                ['Eredivisie', 'Ajax vs PSV', 'BTTS Yes', 'Over 2.5', 'Over 1.5'],
-                ['Primeira Liga', 'Porto vs Benfica', 'Under 2.5', 'Home Win', 'Over 1.5'],
-                ['MLS', 'LA Galaxy vs Inter Miami', 'Away Win', 'Over 3.5', 'Over 2.5'],
-                ['Super Lig', 'Galatasaray vs Besiktas', 'Home Win', 'Over 2.5', 'Over 1.5'],
-                ['Scottish Prem', 'Celtic vs Rangers', 'Over 2.5', 'Home Win', 'Over 1.5']
-            ];
-            fbMatches.forEach(m => document.write(generateMatchCard(m[0], m[1], 'Match Winner', m[2], '1.5 U/O', m[3], '2.5 U/O', m[4])));
-        </script>
-    </div>
+        <div class="match-card football-card">
+            <span class="league">Premier League</span>
+            <span class="teams">Arsenal vs Chelsea</span>
+            <div class="tips-grid">
+                <div class="tip-row"><span class="tip-label">Winner</span><span class="tip-pick">Home Win</span></div>
+                <div class="tip-row"><span class="tip-label">1.5 U/O</span><span class="tip-pick">Over</span></div>
+                <div class="tip-row"><span class="tip-label">2.5 U/O</span><span class="tip-pick">Over</span></div>
+            </div>
+        </div>
+        <div class="match-card football-card"><span class="league">La Liga</span><span class="teams">Real Madrid vs Sevilla</span><div class="tips-grid"><div class="tip-row"><span class="tip-label">Winner</span><span class="tip-pick">Home</span></div><div class="tip-row"><span class="tip-label">1.5 U/O</span><span class="tip-pick">Over</span></div><div class="tip-row"><span class="tip-label">2.5 U/O</span><span class="tip-pick">Under</span></div></div></div>
+        <div class="match-card football-card"><span class="league">Serie A</span><span class="teams">Inter vs Milan</span><div class="tips-grid"><div class="tip-row"><span class="tip-label">Winner</span><span class="tip-pick">Draw</span></div><div class="tip-row"><span class="tip-label">1.5 U/O</span><span class="tip-pick">Over</span></div><div class="tip-row"><span class="tip-label">2.5 U/O</span><span class="tip-pick">Over</span></div></div></div>
+        </div>
 
     <div id="cricket" class="content-section">
-        <script>
-            const cricketMatches = [
-                ['IPL 2025', 'RCB vs KKR', 'RCB Win', '185+', '54-60'],
-                ['IPL 2025', 'MI vs CSK', 'CSK Win', '170+', '48-52'],
-                ['Big Bash', 'Heat vs Stars', 'Heat Win', '160+', '42-46'],
-                ['PSL 2025', 'Zalmi vs Qalandars', 'Zalmi Win', '190+', '58-64'],
-                ['BPL', 'Vikings vs Tigers', 'Away Win', '155+', '40-44'],
-                ['International T20', 'India vs Australia', 'India Win', '180+', '50-55'],
-                ['Test Match', 'England vs NZ', 'Draw', 'Session 1: 90+', 'No Tip'],
-                ['ODI World Cup', 'SA vs Pakistan', 'SA Win', '280+', '45-50 (10ov)'],
-                ['T20 Blast', 'Surrey vs Kent', 'Home Win', '175+', '52-56'],
-                ['Super Smash', 'Firebirds vs Kings', 'Kings Win', '160+', '44-49']
-            ];
-            cricketMatches.forEach(m => document.write(generateMatchCard(m[0], m[1], 'Match Winner', m[2], 'Total Score', m[3], '6 Over Score', m[4])));
-        </script>
-    </div>
+        <div class="match-card cricket-card">
+            <span class="league">IPL 2025</span>
+            <span class="teams">RCB vs KKR</span>
+            <div class="tips-grid">
+                <div class="tip-row"><span class="tip-label">Winner</span><span class="tip-pick">RCB Win</span></div>
+                <div class="tip-row"><span class="tip-label">Total Score</span><span class="tip-pick">180+</span></div>
+                <div class="tip-row"><span class="tip-label">6 Over Score</span><span class="tip-pick">52-56</span></div>
+            </div>
+        </div>
+        </div>
 
     <div id="tennis" class="content-section">
-        <script>
-            const tennisMatches = [
-                ['Wimbledon', 'Djokovic vs Sinner', 'Djokovic', 'Over 22.5', 'Set 1: Home'],
-                ['US Open', 'Alcaraz vs Medvedev', 'Alcaraz', 'Over 21.5', 'Set 2: Home'],
-                ['French Open', 'Nadal vs Zverev', 'Nadal', 'Under 19.5', 'Set 1: Home'],
-                ['Australian Open', 'Tsitsipas vs Fritz', 'Fritz', 'Over 20.5', 'Set 1: Away'],
-                ['ATP Finals', 'Ruud vs Rublev', 'Rublev', 'Over 22.5', 'Set 1: Away'],
-                ['Miami Open', 'Shelton vs Tiafoe', 'Shelton', 'Over 21.5', 'Set 1: Home'],
-                ['Indian Wells', 'Swiatek vs Sabalenka', 'Swiatek', 'Under 18.5', 'Set 1: Home'],
-                ['Madrid Open', 'Gauff vs Jabeur', 'Gauff', 'Over 20.5', 'Set 1: Home'],
-                ['Monte Carlo', 'Rune vs Dimitrov', 'Dimitrov', 'Over 22.5', 'Set 1: Away'],
-                ['Italian Open', 'Hurkacz vs Paul', 'Hurkacz', 'Over 21.5', 'Set 1: Home']
-            ];
-            tennisMatches.forEach(m => document.write(generateMatchCard(m[0], m[1], 'Match Winner', m[2], 'Total Games', m[3], 'Set Winner', m[4])));
-        </script>
-    </div>
+        <div class="match-card tennis-card">
+            <span class="league">Wimbledon</span>
+            <span class="teams">Djokovic vs Alcaraz</span>
+            <div class="tips-grid">
+                <div class="tip-row"><span class="tip-label">Winner</span><span class="tip-pick">Djokovic</span></div>
+                <div class="tip-row"><span class="tip-label">Total Games</span><span class="tip-pick">Over 22.5</span></div>
+                <div class="tip-row"><span class="tip-label">Set Winner</span><span class="tip-pick">Set 1: Home</span></div>
+            </div>
+        </div>
+        </div>
 
     <script>
-        function generateMatchCard(league, teams, l1, v1, l2, v2, l3, v3) {
-            return `
-                <div class="match-card">
-                    <span class="league-tag">${league}</span>
-                    <div class="team-row">${teams}</div>
-                    <div class="tips-container">
-                        <div class="tip-item"><span class="tip-name">${l1}</span><span class="tip-pick">${v1}</span></div>
-                        <div class="tip-item"><span class="tip-name">${l2}</span><span class="tip-pick">${v2}</span></div>
-                        <div class="tip-item"><span class="tip-name">${l3}</span><span class="tip-pick">${v3}</span></div>
-                    </div>
-                </div>
-            `;
-        }
-
-        function openSport(id, btn) {
+        function showSport(sportId, btn) {
+            // Remove active classes
             document.querySelectorAll('.content-section').forEach(s => s.classList.remove('active'));
-            document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
-            document.getElementById(id).classList.add('active');
+            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+            
+            // Add active to selected
+            document.getElementById(sportId).classList.add('active');
             btn.classList.add('active');
         }
     </script>
-
 </body>
 </html>
