@@ -3,16 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Super Tips Expert | All Sports</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <title>Super Tips Expert | Sports Predictions</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
     <style>
         :root {
             --primary: #2ecc71; 
             --gold: #f1c40f;
-            --bg: #121212;
-            --card: #1e1e1e;
+            --bg: #0f0f0f;
+            --card: #1a1a1a;
             --text: #ffffff;
         }
 
@@ -31,15 +31,15 @@
             border-bottom: 2px solid var(--primary);
         }
 
-        /* Tabs Styling */
+        /* Tabs Styling - Fix for Click */
         .tabs {
             display: flex;
             justify-content: center;
             background: #222;
-            padding: 10px 0;
+            padding: 10px;
             position: sticky;
             top: 0;
-            z-index: 100;
+            z-index: 1000;
             gap: 10px;
         }
 
@@ -47,150 +47,135 @@
             background: #333;
             border: none;
             color: #fff;
-            padding: 12px 20px;
+            padding: 12px 15px;
             cursor: pointer;
             font-weight: 600;
-            border-radius: 5px;
-            transition: 0.3s;
+            border-radius: 8px;
+            flex: 1;
+            max-width: 120px;
+            font-size: 0.8rem;
+            transition: all 0.3s ease;
         }
 
         .tab-btn.active {
             background: var(--primary);
             color: #000;
+            box-shadow: 0 0 10px var(--primary);
         }
 
-        /* Content Sections */
+        /* Section Visibility */
         .content-section {
-            display: none; /* Hidden by default */
-            max-width: 900px;
+            display: none; /* Default hidden */
+            max-width: 800px;
             margin: 20px auto;
             padding: 0 15px;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         .content-section.active {
-            display: block; /* Show active section */
+            display: block; /* Show active */
         }
 
-        .section-title {
-            color: var(--gold);
-            margin-bottom: 20px;
-            font-size: 1.5rem;
-            text-align: center;
-        }
-
-        /* Match Card */
         .match-card {
             background: var(--card);
             border-radius: 12px;
             margin-bottom: 20px;
             overflow: hidden;
-            border-left: 5px solid var(--primary);
+            border: 1px solid #333;
         }
 
         .match-header {
-            background: #2a2a2a;
+            background: #252525;
             padding: 10px 15px;
             display: flex;
             justify-content: space-between;
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             color: var(--gold);
         }
 
         .match-body { padding: 20px; text-align: center; }
+        .teams { font-size: 1.2rem; font-weight: bold; margin-bottom: 15px; }
 
-        .teams { font-size: 1.3rem; font-weight: bold; margin-bottom: 15px; }
-
-        /* Tips Grid */
         .tips-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 10px;
+            gap: 8px;
         }
 
         .tip-box {
-            background: #252525;
+            background: #222;
             padding: 10px 5px;
             border-radius: 8px;
-            border: 1px solid #333;
+            border: 1px solid #444;
         }
 
-        .tip-label {
-            display: block;
-            font-size: 0.7rem;
-            color: #aaa;
-            margin-bottom: 5px;
-        }
+        .tip-label { display: block; font-size: 0.65rem; color: #aaa; margin-bottom: 5px; }
+        .tip-value { display: block; font-weight: bold; color: var(--primary); font-size: 0.85rem; }
 
-        .tip-value {
-            display: block;
-            font-weight: bold;
-            color: var(--primary);
-            font-size: 0.9rem;
+        .section-title {
+            text-align: center;
+            color: var(--gold);
+            margin-bottom: 20px;
+            text-transform: uppercase;
         }
     </style>
 </head>
 <body>
 
     <header>
-        <h1 style="color: var(--gold); margin:0;">SUPER TIPS EXPERT</h1>
+        <h1 style="color: var(--gold); margin:0; font-size: 1.4rem;">SUPER TIPS EXPERT</h1>
     </header>
 
     <div class="tabs">
-        <button class="tab-btn active" onclick="showSport('football', this)"><i class="fas fa-futbol"></i> Football</button>
-        <button class="tab-btn" onclick="showSport('cricket', this)"><i class="fas fa-baseball-ball"></i> Cricket</button>
-        <button class="tab-btn" onclick="showSport('tennis', this)"><i class="fas fa-table-tennis"></i> Tennis</button>
+        <button class="tab-btn active" data-target="football"><i class="fas fa-futbol"></i> Football</button>
+        <button class="tab-btn" data-target="cricket"><i class="fas fa-baseball-ball"></i> Cricket</button>
+        <button class="tab-btn" data-target="tennis"><i class="fas fa-table-tennis"></i> Tennis</button>
     </div>
 
     <div id="football" class="content-section active">
-        <h2 class="section-title">Football Predictions</h2>
+        <h2 class="section-title">Football</h2>
         <div class="match-card">
-            <div class="match-header"><span>Premier League</span> <span>LIVE</span></div>
+            <div class="match-header"><span>Premier League</span> <span>21:00</span></div>
             <div class="match-body">
-                <div class="teams">Chelsea vs Man Utd</div>
+                <div class="teams">Arsenal vs Man City</div>
                 <div class="tips-grid">
-                    <div class="tip-box"><span class="tip-label">Match Winner</span><span class="tip-value">Draw</span></div>
-                    <div class="tip-box"><span class="tip-label">1.5 U/O</span><span class="tip-value">Over 1.5</span></div>
-                    <div class="tip-box"><span class="tip-label">2.5 U/O</span><span class="tip-value">Under 2.5</span></div>
+                    <div class="tip-box"><span class="tip-label">Winner</span><span class="tip-value">Home</span></div>
+                    <div class="tip-box"><span class="tip-label">1.5 U/O</span><span class="tip-value">Over</span></div>
+                    <div class="tip-box"><span class="tip-label">2.5 U/O</span><span class="tip-value">Over</span></div>
                 </div>
             </div>
         </div>
     </div>
 
     <div id="cricket" class="content-section">
-        <h2 class="section-title">Cricket Predictions</h2>
+        <h2 class="section-title">Cricket</h2>
         <div class="match-card">
-            <div class="match-header"><span>IPL 2025</span> <span>19:30 PM</span></div>
+            <div class="match-header"><span>IPL 2025</span> <span>19:30</span></div>
             <div class="match-body">
-                <div class="teams">RCB vs KKR</div>
+                <div class="teams">Mumbai vs Delhi</div>
                 <div class="tips-grid">
-                    <div class="tip-box"><span class="tip-label">Match Winner</span><span class="tip-value">RCB Win</span></div>
-                    <div class="tip-box"><span class="tip-label">Total Score</span><span class="tip-value">180+ Runs</span></div>
-                    <div class="tip-box"><span class="tip-label">6 Over Score</span><span class="tip-value">52-58</span></div>
-                </div>
-            </div>
-        </div>
-        <div class="match-card">
-            <div class="match-header"><span>Big Bash</span> <span>Tomorrow</span></div>
-            <div class="match-body">
-                <div class="teams">Heat vs Strikers</div>
-                <div class="tips-grid">
-                    <div class="tip-box"><span class="tip-label">Match Winner</span><span class="tip-value">Heat Win</span></div>
-                    <div class="tip-box"><span class="tip-label">Total Score</span><span class="tip-value">165+ Runs</span></div>
-                    <div class="tip-box"><span class="tip-label">6 Over Score</span><span class="tip-value">45-50</span></div>
+                    <div class="tip-box"><span class="tip-label">Match Winner</span><span class="tip-value">Mumbai</span></div>
+                    <div class="tip-box"><span class="tip-label">Total Score</span><span class="tip-value">175+</span></div>
+                    <div class="tip-box"><span class="tip-label">6 Over Score</span><span class="tip-value">48-54</span></div>
                 </div>
             </div>
         </div>
     </div>
 
     <div id="tennis" class="content-section">
-        <h2 class="section-title">Tennis Predictions</h2>
+        <h2 class="section-title">Tennis</h2>
         <div class="match-card">
-            <div class="match-header"><span>Wimbledon</span> <span>Scheduled</span></div>
+            <div class="match-header"><span>ATP Paris</span> <span>15:00</span></div>
             <div class="match-body">
-                <div class="teams">Djokovic vs Alcaraz</div>
+                <div class="teams">Nadal vs Federer</div>
                 <div class="tips-grid">
-                    <div class="tip-box"><span class="tip-label">Match Winner</span><span class="tip-value">Alcaraz</span></div>
-                    <div class="tip-box"><span class="tip-label">Total Games</span><span class="tip-value">Over 22.5</span></div>
+                    <div class="tip-box"><span class="tip-label">Winner</span><span class="tip-value">Nadal</span></div>
+                    <div class="tip-box"><span class="tip-label">Total Games</span><span class="tip-value">Over 21.5</span></div>
                     <div class="tip-box"><span class="tip-label">Set Winner</span><span class="tip-value">Set 1: Home</span></div>
                 </div>
             </div>
@@ -198,19 +183,24 @@
     </div>
 
     <script>
-        function showSport(sportId, btn) {
-            // Hide all sections
-            const sections = document.querySelectorAll('.content-section');
-            sections.forEach(sec => sec.classList.remove('active'));
-            
-            // Remove active class from all buttons
-            const buttons = document.querySelectorAll('.tab-btn');
-            buttons.forEach(b => b.classList.remove('active'));
-            
-            // Show selected section and activate button
-            document.getElementById(sportId).classList.add('active');
-            btn.classList.add('active');
-        }
+        document.querySelectorAll('.tab-btn').forEach(button => {
+            button.addEventListener('click', () => {
+                const target = button.getAttribute('data-target');
+
+                // 1. Remove active class from all buttons
+                document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+                
+                // 2. Hide all sections
+                document.querySelectorAll('.content-section').forEach(section => section.classList.remove('active'));
+
+                // 3. Add active class to clicked button
+                button.classList.add('active');
+
+                // 4. Show target section
+                document.getElementById(target).classList.add('active');
+            });
+        });
     </script>
+
 </body>
 </html>
