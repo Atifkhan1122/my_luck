@@ -66,22 +66,36 @@
        <div class="broadcast-card">
     <div class="bc-header">
         <span><i class="fab fa-telegram"></i> LIVE TELEGRAM UPDATES</span>
-        <span><i class="fas fa-circle live-dot"></i> LIVE</span>
+        <span style="font-size:10px;"><i class="fas fa-circle live-dot" style="color:#ff5252;"></i> 480 ONLINE</span>
     </div>
-    <div id="chatBox" style="height: 200px; background: linear-gradient(135deg, #111, #1a1a1a); display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 20px;">
+    
+    <div id="chatBox" style="height: 450px; overflow-y: auto; background: #000; position: relative; border-top: 1px solid #222;">
         
-        <div style="background: rgba(36, 161, 222, 0.1); width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 15px; border: 1px solid var(--telegram);">
-            <i class="fab fa-telegram-plane" style="font-size: 30px; color: var(--telegram);"></i>
+        <script async src="https://telegram.org/js/telegram-widget.js?22" 
+                data-telegram="BT_EXPERT_OFFICIAL" 
+                data-width="100%" 
+                data-color="00e676" 
+                data-dark="1"
+                data-userpic="false">
+        </script>
+
+        <div style="padding: 15px; text-align: center; background: rgba(0,0,0,0.8); position: sticky; bottom: 0; border-top: 1px solid #333;">
+            <a href="https://t.me/BT_EXPERT_OFFICIAL" target="_blank" class="btn-pro" style="background: #24A1DE; color: white; width: auto; padding: 10px 25px; border-radius: 50px; text-decoration: none; font-size: 13px; display: inline-block; font-weight: 900;">
+                <i class="fab fa-telegram-plane"></i> JOIN FOR MORE UPDATES
+            </a>
         </div>
-        
-        <h4 style="margin: 0 0 5px; font-size: 16px;">Toss & Match Updates</h4>
-        <p style="margin: 0 0 15px; font-size: 12px; color: #888;">Join our private channel for 100% fixed reports</p>
-        
-        <a href="https://t.me/+H4C6wOttGa01YjZk" target="_blank" class="btn-pro" style="background: var(--telegram); color: white; width: auto; padding: 10px 30px; font-size: 13px; border-radius: 50px; text-decoration: none; box-shadow: 0 5px 15px rgba(36, 161, 222, 0.3);">
-            VIEW LIVE MESSAGES
-        </a>
     </div>
 </div>
+
+<style>
+/* Blink Animation for Live Dot */
+.live-dot { animation: blink-animation 1s steps(5, start) infinite; }
+@keyframes blink-animation { to { visibility: hidden; } }
+
+/* Chatbox scrollbar styling */
+#chatBox::-webkit-scrollbar { width: 5px; }
+#chatBox::-webkit-scrollbar-thumb { background: #333; border-radius: 10px; }
+</style>
 
         /* Match Cards Styling */
         .content-section { display: none; }
@@ -300,4 +314,5 @@
     </script>
 </body>
 </html>
+
 
