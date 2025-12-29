@@ -3,9 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>BT EXPERT | VIP Portal & WhatsApp</title>
-    <link rel="manifest" href="manifest.json">
+    <title>BT EXPERT | VIP Portal</title>
     
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#00e676">
+
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
@@ -26,72 +28,75 @@
             overflow-x: hidden;
         }
 
-        /* HEADER */
+        /* NAVBAR */
         nav { 
-            background: var(--dark); padding: 10px 5%; 
+            background: var(--dark); padding: 12px 5%; 
             display: flex; justify-content: space-between; align-items: center; 
             position: sticky; top: 0; z-index: 2000; border-bottom: 1px solid #222;
         }
-        .logo-container { display: flex; align-items: center; gap: 8px; }
-        .app-logo { width: 35px; height: 35px; border-radius: 50%; border: 1px solid var(--brand); }
-        .logo-text { font-size: 18px; font-weight: 900; color: var(--brand); }
+        .logo-container { display: flex; align-items: center; gap: 10px; }
+        .app-logo { width: 38px; height: 38px; border-radius: 50%; border: 2px solid var(--brand); }
+        .logo-text { font-size: 20px; font-weight: 900; color: var(--brand); letter-spacing: 1px; }
+        
+        #vipStatus { font-size: 10px; font-weight: bold; color: #ff5252; border: 1px solid #ff5252; padding: 5px 12px; border-radius: 20px; cursor: pointer; }
 
-        /* TABS */
+        /* MULTI-WINDOW TABS */
         .menu-bar { 
             background: #000; display: flex; justify-content: space-around;
-            position: sticky; top: 56px; z-index: 1999; border-bottom: 2px solid var(--brand);
+            position: sticky; top: 62px; z-index: 1999; border-bottom: 2px solid var(--brand);
         }
         .nav-item { 
-            flex: 1; text-align: center; color: #777; padding: 12px 0; 
+            flex: 1; text-align: center; color: #666; padding: 12px 0; 
             font-size: 10px; font-weight: 900; cursor: pointer; text-transform: uppercase;
         }
-        .nav-item i { display: block; font-size: 16px; margin-bottom: 3px; }
-        .nav-item.active { color: var(--brand); background: rgba(0,230,118,0.1); }
+        .nav-item i { display: block; font-size: 16px; margin-bottom: 4px; }
+        .nav-item.active { color: var(--brand); background: rgba(0,230,118,0.1); border-bottom: 2px solid var(--brand); }
 
-        .container { max-width: 600px; margin: 0 auto; padding: 12px; }
+        .container { max-width: 600px; margin: 0 auto; padding: 15px; }
 
         /* WHATSAPP BOX */
         .broadcast-card {
             background: #075E54; border-radius: 12px; border: 1px solid #128C7E;
-            margin-bottom: 15px; overflow: hidden;
+            margin-bottom: 20px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.3);
         }
-        .bc-header { background: #128C7E; padding: 10px 15px; display: flex; justify-content: space-between; font-size: 10px; font-weight: 900; }
+        .bc-header { background: #128C7E; padding: 10px 15px; display: flex; justify-content: space-between; font-size: 10px; font-weight: 900; color: #fff; }
         .wa-chat-body { padding: 15px; text-align: center; }
 
         /* MATCH CARDS */
-        .window-content { display: none; }
+        .window-content { display: none; animation: fadeIn 0.4s ease; }
         .window-content.active { display: block; }
-        .match-card {
-            background: var(--card-bg); border-radius: 10px; padding: 12px;
-            display: grid; grid-template-columns: 55px 1fr 75px;
-            align-items: center; margin-bottom: 10px; border: 1px solid #333;
-        }
-        .m-time { color: var(--brand); font-weight: bold; font-size: 11px; }
-        .m-teams { font-weight: 700; font-size: 13px; color: #fff; line-height: 1.2; }
-        .m-type { font-size: 9px; color: var(--brand); font-weight: 900; margin-top: 2px; }
-        .tip-btn { background: #2a2a2a; color: var(--brand); font-size: 9px; font-weight: 900; padding: 8px 4px; border-radius: 6px; text-align: center; cursor: pointer; border: 1px solid #444; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
-        /* BUTTONS */
+        .match-card {
+            background: var(--card-bg); border-radius: 12px; padding: 12px;
+            display: grid; grid-template-columns: 60px 1fr 80px;
+            align-items: center; margin-bottom: 12px; border: 1px solid #333;
+        }
+        .m-time { color: var(--brand); font-weight: bold; font-size: 12px; }
+        .m-teams { font-weight: 700; font-size: 14px; color: #fff; line-height: 1.2; }
+        .m-type { font-size: 10px; color: var(--brand); font-weight: 900; margin-top: 2px; }
+        .tip-btn { background: #2a2a2a; color: var(--brand); font-size: 10px; font-weight: 900; padding: 10px 5px; border-radius: 8px; text-align: center; cursor: pointer; border: 1px solid #444; }
+
+        /* LIVE SCORE BUTTON */
         .live-score-btn {
             background: linear-gradient(90deg, #1a237e, #0d47a1);
-            color: white; border: none; width: 100%; padding: 12px;
-            border-radius: 10px; font-weight: 900; font-size: 13px;
-            margin-top: 10px; margin-bottom: 20px; cursor: pointer;
-            text-transform: uppercase; display: flex; align-items: center; justify-content: center; gap: 8px;
+            color: white; border: none; width: 100%; padding: 15px;
+            border-radius: 12px; font-weight: 900; font-size: 14px;
+            margin: 15px 0 30px 0; cursor: pointer;
+            display: flex; align-items: center; justify-content: center; gap: 10px;
+            text-transform: uppercase;
         }
 
         /* MODALS */
         .modal { display: none; position: fixed; z-index: 5000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); backdrop-filter: blur(10px); }
-        .modal-content { background: #1a1a1a; border: 1px solid var(--brand); width: 85%; max-width: 350px; margin: 35% auto; padding: 25px; border-radius: 15px; text-align: center; }
-        .btn-pro { background: var(--brand); color: black; border: none; width: 100%; padding: 12px; border-radius: 50px; font-weight: 900; cursor: pointer; }
-        .login-input { width: 100%; padding: 12px; margin: 15px 0; border-radius: 50px; border: 1px solid #444; background: #000; color: white; text-align: center; }
+        .modal-content { background: #1a1a1a; border: 1px solid var(--brand); width: 85%; max-width: 350px; margin: 30% auto; padding: 25px; border-radius: 20px; text-align: center; }
+        .btn-pro { background: var(--brand); color: black; border: none; width: 100%; padding: 15px; border-radius: 50px; font-weight: 900; cursor: pointer; text-transform: uppercase; }
+        .login-input { width: 100%; padding: 15px; margin: 15px 0; border-radius: 50px; border: 1px solid #444; background: #000; color: white; text-align: center; font-size: 18px; }
 
-        /* FLOATING WHATSAPP */
         .whatsapp-float {
-            position: fixed; bottom: 20px; right: 20px; background: var(--whatsapp);
+            position: fixed; bottom: 25px; right: 20px; background: var(--whatsapp);
             color: white; width: 55px; height: 55px; border-radius: 50%;
             display: flex; align-items: center; justify-content: center; font-size: 28px; z-index: 4000;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.4);
         }
     </style>
 </head>
@@ -99,16 +104,18 @@
 
     <div id="loginModal" class="modal">
         <div class="modal-content">
-            <h2 style="color:var(--brand); margin-top:0;">VIP LOGIN</h2>
-            <input type="password" id="vipCode" class="login-input" placeholder="ENTER CODE">
-            <button onclick="verifyLogin()" class="btn-pro">UNLOCK TIPS</button>
+            <h2 style="color:var(--brand); margin-top:0;">VIP ACCESS</h2>
+            <p style="color:#888; font-size:12px;">Enter 6-digit access code</p>
+            <input type="password" id="vipCode" class="login-input" placeholder="••••••">
+            <button onclick="verifyLogin()" class="btn-pro">UNLOCK NOW</button>
+            <p style="margin-top:15px; font-size:12px;">No Code? <a href="https://wa.me/+923103403254" style="color:var(--brand); text-decoration:none;">Contact Admin</a></p>
         </div>
     </div>
 
     <div id="tipModal" class="modal">
         <div class="modal-content">
-            <h3 id="popTeams">Match</h3>
-            <div id="popTip" style="font-size: 24px; color: var(--brand); font-weight: 900; margin: 15px 0; border: 2px dashed var(--brand); padding: 10px;">LOCKED</div>
+            <h3 id="popTeams">Match Details</h3>
+            <div id="popTip" style="font-size: 26px; color: var(--brand); font-weight: 900; margin: 20px 0; padding: 15px; border: 2px dashed var(--brand);">LOCKED</div>
             <button class="btn-pro" onclick="closeModal('tipModal')">CLOSE</button>
         </div>
     </div>
@@ -118,7 +125,9 @@
             <img src="https://i.ibb.co/3ykS8nC/Gemini-Generated-Image.jpg" class="app-logo">
             <span class="logo-text">BT EXPERT</span>
         </div>
-        <div id="vipStatus" style="font-size:10px; color:#ff5252; font-weight:bold; cursor:pointer;" onclick="openModal('loginModal')">LOCKED</div>
+        <div id="vipStatus" onclick="openModal('loginModal')">
+            <i class="fas fa-lock"></i> VIP LOCKED
+        </div>
     </nav>
 
     <div class="menu-bar">
@@ -130,12 +139,12 @@
     <div class="container">
         
         <div class="broadcast-card">
-            <div class="bc-header"><span>WHATSAPP LIVE FEED</span><span>ONLINE</span></div>
+            <div class="bc-header"><span><i class="fab fa-whatsapp"></i> LIVE FEED</span><span>ONLINE</span></div>
             <div class="wa-chat-body">
-                <p style="font-size:12px; margin-top:0;">Join our WhatsApp for Direct Match Reports!</p>
+                <p style="font-size:13px; margin-top:0;">Get Toss & Match Reports on WhatsApp Channel!</p>
                 <a href="https://wa.me/+923103403254" target="_blank" style="text-decoration:none;">
-                    <button class="btn-pro" style="background:#25d366; color:white; width:auto; padding:8px 20px; font-size:12px;">
-                        <i class="fab fa-whatsapp"></i> JOIN NOW
+                    <button class="btn-pro" style="background:#25d366; color:white; width:auto; padding:10px 25px; font-size:12px;">
+                        <i class="fab fa-whatsapp"></i> JOIN CHANNEL
                     </button>
                 </a>
             </div>
@@ -214,29 +223,36 @@
 
     <script>
         let isVip = false;
+
         function openWindow(id, el) {
             document.querySelectorAll('.window-content').forEach(w => w.classList.remove('active'));
             document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
             document.getElementById(id).classList.add('active');
             el.classList.add('active');
         }
+
         function openModal(id) { document.getElementById(id).style.display = 'block'; }
         function closeModal(id) { document.getElementById(id).style.display = 'none'; }
+
         function handleMatchClick(teams, tip) {
-            if (!isVip) openModal('loginModal');
+            if (!isVip) { openModal('loginModal'); } 
             else {
                 document.getElementById('popTeams').innerText = teams;
                 document.getElementById('popTip').innerText = tip;
                 openModal('tipModal');
             }
         }
+
         function verifyLogin() {
             if(document.getElementById('vipCode').value === "BT786") {
-                isVip = true; document.getElementById('vipStatus').innerText = "UNLOCKED";
-                document.getElementById('vipStatus').style.color = "var(--brand)"; closeModal('loginModal');
-            } else { alert("Incorrect Code"); }
+                isVip = true;
+                const status = document.getElementById('vipStatus');
+                status.innerHTML = '<i class="fas fa-unlock"></i> VIP UNLOCKED';
+                status.style.color = "var(--brand)";
+                status.style.borderColor = "var(--brand)";
+                closeModal('loginModal');
+            } else { alert("Incorrect VIP Code!"); }
         }
     </script>
 </body>
 </html>
-
