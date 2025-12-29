@@ -3,222 +3,259 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Super Tips Expert | Premium Dashboard</title>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <title>Super Tips Expert | Professional Betting Predictions</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
         :root {
-            --neon-green: #00ff88;
-            --neon-blue: #00d4ff;
-            --neon-purple: #9d50bb;
-            --bg-dark: #05070a;
-            --card-glass: rgba(255, 255, 255, 0.03);
-            --border-glass: rgba(255, 255, 255, 0.1);
+            --primary-bg: #f4f4f4;
+            --nav-dark: #111;
+            --green-accent: #00e676;
+            --text-main: #333;
+            --border-color: #ddd;
+            --white: #ffffff;
         }
 
         body {
-            background: var(--bg-dark);
-            color: #fff;
-            font-family: 'Inter', sans-serif;
             margin: 0;
-            overflow-x: hidden;
-            background: radial-gradient(circle at 50% 0%, #1a2a6c 0%, #05070a 100%);
+            padding: 0;
+            font-family: 'Roboto', sans-serif;
+            background-color: var(--primary-bg);
+            color: var(--text-main);
         }
 
-        /* Animated Header */
-        header {
-            padding: 40px 20px;
-            text-align: center;
-            border-bottom: 1px solid var(--border-glass);
-            backdrop-filter: blur(10px);
-        }
-
-        header h1 {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 2.2rem;
-            letter-spacing: 4px;
-            background: linear-gradient(90deg, #fff, var(--neon-green), var(--neon-blue));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin: 0;
-            text-shadow: 0 0 20px rgba(0, 255, 136, 0.2);
-        }
-
-        /* Premium Tabs */
-        .nav-tabs {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            padding: 20px;
-            position: sticky;
-            top: 0;
-            background: rgba(5, 7, 10, 0.8);
-            z-index: 1000;
-            backdrop-filter: blur(20px);
-        }
-
-        .tab-btn {
-            background: var(--card-glass);
-            border: 1px solid var(--border-glass);
-            color: #aaa;
-            padding: 12px 24px;
-            border-radius: 50px;
-            cursor: pointer;
-            font-weight: 600;
-            transition: 0.4s;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .tab-btn.active {
-            background: linear-gradient(135deg, var(--neon-green), var(--neon-blue));
-            color: #000;
-            border: none;
-            box-shadow: 0 0 15px rgba(0, 255, 136, 0.5);
-        }
-
-        /* Match Grid */
-        .section {
-            display: none;
-            max-width: 1200px;
-            margin: 30px auto;
-            padding: 0 20px;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 20px;
-            animation: fadeInUp 0.5s ease forwards;
-        }
-
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .section.active { display: grid; }
-
-        /* Match Card UI */
-        .card {
-            background: var(--card-glass);
-            border: 1px solid var(--border-glass);
-            border-radius: 20px;
-            padding: 20px;
-            transition: 0.3s;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .card:hover {
-            background: rgba(255, 255, 255, 0.07);
-            border-color: var(--neon-green);
-            transform: translateY(-5px);
-        }
-
-        .card::after {
-            content: ''; position: absolute; top: 0; right: 0; 
-            width: 50px; height: 50px; 
-            background: radial-gradient(circle, rgba(0, 255, 136, 0.1) 0%, transparent 70%);
-        }
-
-        .status {
-            font-size: 0.7rem;
-            background: rgba(0, 255, 136, 0.1);
-            color: var(--neon-green);
-            padding: 4px 10px;
-            border-radius: 10px;
-            text-transform: uppercase;
-            font-weight: 700;
-        }
-
-        .league-name {
-            display: block;
-            font-size: 0.8rem;
-            color: #888;
-            margin: 10px 0 5px;
-        }
-
-        .team-vs {
-            font-size: 1.2rem;
-            font-weight: 700;
-            margin-bottom: 20px;
-            display: block;
-        }
-
-        /* Tip Design */
-        .tip-box {
+        /* Top Navbar */
+        nav {
+            background-color: var(--nav-dark);
+            color: white;
+            padding: 10px 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: rgba(0,0,0,0.3);
-            margin-bottom: 8px;
-            padding: 12px 15px;
-            border-radius: 12px;
-            border: 1px solid rgba(255,255,255,0.03);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
 
-        .label { font-size: 0.75rem; color: #777; font-weight: 600; }
-        .value { color: var(--neon-blue); font-weight: 700; font-family: 'Orbitron', sans-serif; font-size: 0.9rem; }
+        .logo {
+            font-size: 24px;
+            font-weight: 900;
+            color: var(--green-accent);
+            text-decoration: none;
+        }
 
-        /* Sport Specific Glow */
-        #football .card:hover { box-shadow: 0 10px 30px rgba(0, 255, 136, 0.1); }
-        #cricket .card:hover { box-shadow: 0 10px 30px rgba(255, 204, 0, 0.1); }
-        #tennis .card:hover { box-shadow: 0 10px 30px rgba(157, 80, 187, 0.1); }
+        .nav-links a {
+            color: #ccc;
+            text-decoration: none;
+            margin-left: 20px;
+            font-size: 14px;
+            text-transform: uppercase;
+            font-weight: 500;
+        }
 
+        .nav-links a:hover { color: var(--green-accent); }
+
+        /* Layout Container */
+        .main-container {
+            display: grid;
+            grid-template-columns: 220px 1fr 280px;
+            gap: 20px;
+            max-width: 1300px;
+            margin: 20px auto;
+            padding: 0 15px;
+        }
+
+        /* Sidebar Styling */
+        .sidebar-box {
+            background: var(--white);
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            margin-bottom: 20px;
+        }
+
+        .box-title {
+            background: #eee;
+            padding: 10px;
+            font-size: 12px;
+            font-weight: bold;
+            text-transform: uppercase;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .sidebar-list { list-style: none; padding: 0; margin: 0; }
+        .sidebar-list li {
+            padding: 10px;
+            border-bottom: 1px solid #f9f9f9;
+            font-size: 13px;
+            display: flex;
+            align-items: center;
+        }
+        .sidebar-list li i { margin-right: 10px; color: #777; width: 20px; }
+        .sidebar-list li:hover { background: #f0f0f0; cursor: pointer; }
+
+        /* Center Content - Predictions */
+        .content-header {
+            background: var(--white);
+            padding: 15px;
+            border: 1px solid var(--border-color);
+            margin-bottom: 10px;
+            border-radius: 4px;
+        }
+
+        .tab-menu {
+            display: flex;
+            gap: 15px;
+            border-bottom: 2px solid #eee;
+            margin-top: 10px;
+            padding-bottom: 5px;
+        }
+
+        .tab-link {
+            font-size: 13px;
+            font-weight: bold;
+            color: #666;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .tab-link.active { color: #00c853; border-bottom: 2px solid #00c853; }
+
+        .match-row {
+            background: var(--white);
+            border: 1px solid var(--border-color);
+            padding: 12px;
+            display: grid;
+            grid-template-columns: 80px 1fr 80px;
+            align-items: center;
+            margin-bottom: 2px;
+        }
+
+        .match-time { font-size: 13px; color: #888; }
+        .match-teams { font-weight: 500; font-size: 14px; text-align: center; }
+        .tip-btn {
+            background: #e8f5e9;
+            color: #2e7d32;
+            text-align: center;
+            padding: 4px;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 12px;
+            border: 1px solid #c8e6c9;
+        }
+
+        /* Right Sidebar - Bookmakers */
+        .bookmaker-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 10px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .bm-name { font-weight: bold; font-size: 14px; }
+        .bm-bonus { font-size: 11px; color: #00c853; font-weight: bold; }
+        .get-btn {
+            background: #4caf50;
+            color: white;
+            padding: 6px 12px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-size: 11px;
+            font-weight: bold;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 900px) {
+            .main-container { grid-template-columns: 1fr; }
+            .sidebar-box.left, .sidebar-box.right { display: none; }
+        }
     </style>
 </head>
 <body>
 
-<header>
-    <h1>SUPER TIPS EXPERT</h1>
-</header>
+    <nav>
+        <a href="#" class="logo">BT EXPERT</a>
+        <div class="nav-links">
+            <a href="#">Predictions</a>
+            <a href="#">Accumulators</a>
+            <a href="#">Live Scores</a>
+            <a href="#">Articles</a>
+        </div>
+    </nav>
 
-<div class="nav-tabs">
-    <button class="tab-btn active" onclick="tab('football', this)"><i class="fas fa-futbol"></i> FOOTBALL</button>
-    <button class="tab-btn" onclick="tab('cricket', this)"><i class="fas fa-baseball-ball"></i> CRICKET</button>
-    <button class="tab-btn" onclick="tab('tennis', this)"><i class="fas fa-table-tennis"></i> TENNIS</button>
-</div>
+    <div class="main-container">
+        <aside class="sidebar-box left">
+            <div class="box-title">Top Leagues</div>
+            <ul class="sidebar-list">
+                <li><i class="fas fa-flag-usa"></i> Premier League</li>
+                <li><i class="fas fa-star"></i> Champions League</li>
+                <li><i class="fas fa-futbol"></i> La Liga</li>
+                <li><i class="fas fa-shield-halved"></i> Bundesliga</li>
+                <li><i class="fas fa-trophy"></i> Serie A</li>
+            </ul>
+            <div style="margin-top: 20px;" class="sidebar-box">
+                <div class="box-title">Advertising</div>
+                <div style="height: 150px; background: #333; color: #555; display: flex; align-items: center; justify-content: center;">200 x 150 AD</div>
+            </div>
+        </aside>
 
-<div id="football" class="section active">
-    <div class="card">
-        <span class="status">Live Tomorrow</span>
-        <span class="league-name">Premier League</span>
-        <span class="team-vs">Liverpool vs Everton</span>
-        <div class="tip-box"><span class="label">TIP 1: WINNER</span><span class="value">HOME WIN</span></div>
-        <div class="tip-box"><span class="label">TIP 2: 1.5 U/O</span><span class="value">OVER 1.5</span></div>
-        <div class="tip-box"><span class="label">TIP 3: 2.5 U/O</span><span class="value">OVER 2.5</span></div>
-    </div>
-    </div>
+        <main>
+            <div class="content-header">
+                <h2 style="margin:0; font-size: 18px;">Football Predictions</h2>
+                <div class="tab-menu">
+                    <span class="tab-link active">Main Games</span>
+                    <span class="tab-link">Over/Under 2.5</span>
+                    <span class="tab-link">BTTS</span>
+                </div>
+            </div>
 
-<div id="cricket" class="section">
-    <div class="card">
-        <span class="status">BBL T20</span>
-        <span class="league-name">Big Bash League</span>
-        <span class="team-vs">Scorcher vs Sixers</span>
-        <div class="tip-box"><span class="label">TIP 1: WINNER</span><span class="value">AWAY WIN</span></div>
-        <div class="tip-box"><span class="tip-label">TIP 2: TOTAL</span><span class="value">170+ RUNS</span></div>
-        <div class="tip-box"><span class="tip-label">TIP 3: 6 OVER</span><span class="value">48-53</span></div>
-    </div>
-    </div>
+            <div class="box-title" style="background: #fff; border: 1px solid #ddd; margin-top: 10px;">
+                <i class="fas fa-calendar-day"></i> Monday 29 Dec 2025
+            </div>
 
-<div id="tennis" class="section">
-    <div class="card">
-        <span class="status">ATP Finals</span>
-        <span class="league-name">ATP - Single</span>
-        <span class="team-vs">Sinner vs Fritz</span>
-        <div class="tip-box"><span class="label">TIP 1: WINNER</span><span class="value">SINNER</span></div>
-        <div class="tip-box"><span class="label">TIP 2: GAMES</span><span class="value">OVER 21.5</span></div>
-        <div class="tip-box"><span class="label">TIP 3: SET 1</span><span class="value">HOME WIN</span></div>
-    </div>
-</div>
+            <div class="match-row">
+                <span class="match-time">19:45</span>
+                <span class="match-teams">Arsenal <span style="color:#999; font-weight:normal;">vs</span> Chelsea</span>
+                <span class="tip-btn">TIP</span>
+            </div>
+            <div class="match-row">
+                <span class="match-time">21:00</span>
+                <span class="match-teams">Real Madrid <span style="color:#999; font-weight:normal;">vs</span> Barcelona</span>
+                <span class="tip-btn">TIP</span>
+            </div>
+            <div class="match-row">
+                <span class="match-time">18:30</span>
+                <span class="match-teams">Man City <span style="color:#999; font-weight:normal;">vs</span> Liverpool</span>
+                <span class="tip-btn">TIP</span>
+            </div>
+            </main>
 
-<script>
-    function tab(id, btn) {
-        document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
-        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-        document.getElementById(id).classList.add('active');
-        btn.classList.add('active');
-    }
-</script>
+        <aside class="sidebar-box right">
+            <div class="box-title">Top Bookmakers</div>
+            <div class="bookmaker-item">
+                <div>
+                    <div class="bm-name">BET365</div>
+                    <div class="bm-bonus">100% BONUS</div>
+                </div>
+                <a href="#" class="get-btn">GET NOW</a>
+            </div>
+            <div class="bookmaker-item">
+                <div>
+                    <div class="bm-name">1XBET</div>
+                    <div class="bm-bonus">130% BONUS</div>
+                </div>
+                <a href="#" class="get-btn">GET NOW</a>
+            </div>
+            <div class="bookmaker-item">
+                <div>
+                    <div class="bm-name">22BET</div>
+                    <div class="bm-bonus">300€ BONUS</div>
+                </div>
+                <a href="#" class="get-btn">GET NOW</a>
+            </div>
+        </aside>
+    </div>
 
 </body>
 </html>
