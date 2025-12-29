@@ -1,19 +1,13 @@
 {
   "name": "BT EXPERT VIP",
   "short_name": "BT EXPERT",
-  "start_url": "index.html",
+  "start_url": ".",
   "display": "standalone",
   "background_color": "#111111",
   "theme_color": "#00e676",
-  "description": "Professional VIP Betting Tips Portal",
   "icons": [
     {
-      "src": "https://cdn-icons-png.flaticon.com/512/5358/5358642.png",
-      "sizes": "192x192",
-      "type": "image/png"
-    },
-    {
-      "src": "https://cdn-icons-png.flaticon.com/512/5358/5358642.png",
+      "src": "https://i.ibb.co/3ykS8nC/Gemini-Generated-Image.jpg",
       "sizes": "512x512",
       "type": "image/png"
     }
