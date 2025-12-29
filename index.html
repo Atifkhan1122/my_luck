@@ -14,9 +14,10 @@
             --bg: #f4f4f4;
             --border: #ddd;
             --white: #ffffff;
+            --whatsapp: #25d366;
         }
 
-        body { margin: 0; font-family: 'Roboto', sans-serif; background: var(--bg); color: #333; }
+        body { margin: 0; font-family: 'Roboto', sans-serif; background: var(--bg); color: #333; padding-bottom: 80px; }
 
         /* Navigation */
         nav {
@@ -44,7 +45,6 @@
         .box-h { background: #eee; padding: 10px; font-size: 11px; font-weight: bold; text-transform: uppercase; border-bottom: 1px solid var(--border); }
         .list-item { padding: 10px; border-bottom: 1px solid #f9f9f9; font-size: 13px; cursor: pointer; display: flex; align-items: center; text-decoration: none; color: #333; }
         .list-item:hover { background: #f0f0f0; }
-        .list-item i { margin-right: 10px; color: #888; width: 15px; }
 
         /* Main Content Section */
         .content-section { display: none; }
@@ -55,25 +55,60 @@
         .match-row {
             background: #fff; border: 1px solid var(--border); padding: 12px;
             display: grid; grid-template-columns: 60px 1fr 70px;
-            align-items: center; margin-bottom: 2px; transition: 0.2s;
+            align-items: center; margin-bottom: 2px;
         }
         .match-row:hover { background: #f9f9f9; border-color: var(--brand); }
-        
         .m-time { font-size: 12px; color: #888; font-weight: bold; }
         .m-teams { font-size: 14px; font-weight: 500; text-align: center; }
-        .tip-btn { 
-            background: #e8f5e9; color: #2e7d32; font-size: 11px; font-weight: bold; 
-            padding: 5px; text-align: center; border-radius: 3px; border: 1px solid #c8e6c9; 
+        .tip-btn { background: #e8f5e9; color: #2e7d32; font-size: 11px; font-weight: bold; padding: 5px; text-align: center; border-radius: 3px; border: 1px solid #c8e6c9; }
+
+        /* Bottom Promo Banner */
+        .promo-banner {
+            background: linear-gradient(to right, #111, #222);
+            color: var(--brand);
+            text-align: center;
+            padding: 15px;
+            font-weight: 900;
+            font-size: 18px;
+            border: 2px dashed var(--brand);
+            margin-top: 20px;
+            border-radius: 8px;
         }
 
-        /* Right Sidebar Bookmakers */
-        .bm-row { display: flex; justify-content: space-between; align-items: center; padding: 12px; border-bottom: 1px solid #eee; }
-        .btn-get { background: #4caf50; color: #fff; text-decoration: none; padding: 6px 10px; font-size: 11px; font-weight: bold; border-radius: 4px; }
+        /* Floating WhatsApp Button */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: var(--whatsapp);
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            z-index: 3000;
+        }
+
+        /* Footer / T&C */
+        footer {
+            background: #fff;
+            padding: 20px;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            font-size: 12px;
+            color: #777;
+            margin-top: 40px;
+        }
 
         @media (max-width: 950px) {
             .container { grid-template-columns: 1fr; }
             .side { display: none; }
-            .nav-links { justify-content: center; }
         }
     </style>
 </head>
@@ -87,7 +122,7 @@
             <div class="nav-item" onclick="showSection('tennis', this)">Tennis</div>
             <div class="nav-item" onclick="showSection('accumulators', this)">Accumulators</div>
             <div class="nav-item" onclick="showSection('livescores', this)">Live Scores</div>
-            <div class="nav-item" onclick="showSection('articles', this)">Articles</div>
+            <div class="nav-item" onclick="showSection('terms', this)">Terms & Conditions</div>
         </div>
     </nav>
 
@@ -95,97 +130,76 @@
         <aside class="side">
             <div class="box">
                 <div class="box-h">Top Leagues</div>
-                <a href="#" class="list-item"><i class="fas fa-trophy"></i> Premier League</a>
-                <a href="#" class="list-item"><i class="fas fa-futbol"></i> La Liga</a>
-                <a href="#" class="list-item"><i class="fas fa-star"></i> Champions League</a>
-                <a href="#" class="list-item"><i class="fas fa-shield-halved"></i> Bundesliga</a>
+                <a href="#" class="list-item">Premier League</a>
+                <a href="#" class="list-item">La Liga</a>
+                <a href="#" class="list-item">Champions League</a>
+            </div>
+            <div class="box" style="padding:10px; font-size:12px;">
+                <b>Contact Support:</b><br>
+                Available 24/7 for VIP Tips.
             </div>
         </aside>
 
-        <main id="main-content">
-            
+        <main>
             <section id="predictions" class="content-section active">
-                <div class="box-h" style="background:none; border:none; padding-left:0; font-size:16px;">Football Predictions</div>
-                <a href="https://yourlink.com/match1" class="match-link">
+                <div class="box-h" style="background:none; border:none; padding-left:0; font-size:16px;">Football Tips</div>
+                <a href="https://wa.me/YOURNUMBER" class="match-link">
                     <div class="match-row"><span class="m-time">20:45</span><span class="m-teams">Arsenal vs Chelsea</span><span class="tip-btn">TIP</span></div>
-                </a>
-                <a href="#" class="match-link">
-                    <div class="match-row"><span class="m-time">21:00</span><span class="m-teams">Real Madrid vs Sevilla</span><span class="tip-btn">TIP</span></div>
                 </a>
             </section>
 
             <section id="cricket" class="content-section">
-                <div class="box-h" style="background:none; border:none; padding-left:0; font-size:16px;">Cricket Predictions</div>
+                <div class="box-h" style="background:none; border:none; padding-left:0; font-size:16px;">Cricket Tips</div>
                 <a href="#" class="match-link">
-                    <div class="match-row"><span class="m-time">19:30</span><span class="m-teams">India vs South Africa</span><span class="tip-btn">WIN</span></div>
-                </a>
-                <a href="#" class="match-link">
-                    <div class="match-row"><span class="m-time">14:00</span><span class="m-teams">RCB vs KKR (Total Score)</span><span class="tip-btn">180+</span></div>
+                    <div class="match-row"><span class="m-time">19:30</span><span class="m-teams">India vs Pakistan</span><span class="tip-btn">WIN</span></div>
                 </a>
             </section>
 
             <section id="tennis" class="content-section">
-                <div class="box-h" style="background:none; border:none; padding-left:0; font-size:16px;">Tennis Predictions</div>
+                <div class="box-h" style="background:none; border:none; padding-left:0; font-size:16px;">Tennis Tips</div>
                 <a href="#" class="match-link">
-                    <div class="match-row"><span class="m-time">15:00</span><span class="m-teams">Nadal vs Sinner</span><span class="tip-btn">HOME</span></div>
+                    <div class="match-row"><span class="m-time">15:00</span><span class="m-teams">Nadal vs Federer</span><span class="tip-btn">SET 1</span></div>
                 </a>
             </section>
 
-            <section id="accumulators" class="content-section">
+            <section id="terms" class="content-section">
                 <div class="box" style="padding:20px;">
-                    <h2 style="margin:0 0 10px 0;">Weekend Mega Acca</h2>
-                    <p>Total Odds: 15.80 | 6 Selections</p>
-                    <a href="#" class="btn-get" style="display:inline-block;">View Betting Slip</a>
+                    <h2>Terms & Conditions</h2>
+                    <p>1. Betting is for ages 18+ only.</p>
+                    <p>2. We provide tips, not guaranteed wins. Play at your own risk.</p>
+                    <p>3. Our website is not responsible for any financial loss.</p>
                 </div>
             </section>
 
-            <section id="livescores" class="content-section">
-                <div class="box-h" style="color:red;">● Live Scores</div>
-                <div class="match-row">
-                    <span class="m-time" style="color:red;">85'</span>
-                    <span class="m-teams">Man City 2 - 2 Liverpool</span>
-                    <span class="tip-btn" style="background:orange; color:white; border:none;">LIVE</span>
-                </div>
-            </section>
-
-            <section id="articles" class="content-section">
-                <div class="box" style="padding:15px;">
-                    <h3>How to win at T20 Betting?</h3>
-                    <p style="font-size:13px; color:#666;">Read our expert guide for 2025...</p>
-                    <a href="#" style="color:var(--brand); font-weight:bold; font-size:12px;">READ MORE</a>
-                </div>
-            </section>
-
+            <div class="promo-banner">
+                MORE GAMES 100% WIN DAILY - JOIN VIP
+            </div>
         </main>
 
         <aside class="side">
             <div class="box">
                 <div class="box-h">Top Bookmakers</div>
-                <div class="bm-row"><div><b>BET365</b><br><small style="color:green;">100% BONUS</small></div><a href="https://bet365.com" class="btn-get">GET NOW</a></div>
-                <div class="bm-row"><div><b>1XBET</b><br><small style="color:green;">130% BONUS</small></div><a href="#" class="btn-get">GET NOW</a></div>
+                <div style="padding:10px; border-bottom:1px solid #eee; display:flex; justify-content:space-between;">
+                    <b>BET365</b> <a href="#" style="background:green; color:#fff; padding:3px 8px; font-size:10px; border-radius:3px; text-decoration:none;">GET NOW</a>
+                </div>
             </div>
         </aside>
     </div>
 
+    <a href="https://wa.me/YOUR_NUMBER_HERE" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <footer>
+        &copy; 2025 BT EXPERT. All rights reserved. 18+ | Gamble Responsibly.
+    </footer>
+
     <script>
-        function showSection(sectionId, element) {
-            // Hide all sections
-            const sections = document.querySelectorAll('.content-section');
-            sections.forEach(s => s.classList.remove('active'));
-
-            // Show target section
-            const target = document.getElementById(sectionId);
-            if(target) {
-                target.classList.add('active');
-            }
-
-            // Update Nav Active State
-            const navItems = document.querySelectorAll('.nav-item');
-            navItems.forEach(n => n.classList.remove('active'));
-            element.classList.add('active');
-
-            // Scroll to top on mobile
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+        function showSection(id, btn) {
+            document.querySelectorAll('.content-section').forEach(s => s.classList.remove('active'));
+            document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+            document.getElementById(id).classList.add('active');
+            btn.classList.add('active');
         }
     </script>
 </body>
