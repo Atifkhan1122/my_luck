@@ -12,9 +12,45 @@
 <link rel="apple-touch-icon" href="icon-192.png"> <meta name="theme-color" content="#111111">
     
     <style>
-        :root { --brand: #00e676; --dark: #111; --bg: #f2f2f2; --white: #ffffff; --whatsapp: #25d366; }
-        * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
-        body { margin: 0; font-family: 'Roboto', sans-serif; background: var(--bg); color: #333; padding-bottom: 30px; }
+       /* Stylish Glassmorphism Modal */
+.modal-content {
+    background: rgba(30, 30, 30, 0.95); /* Dark Theme */
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--brand);
+    color: white;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+    text-align: center;
+}
+
+.tip-box {
+    background: rgba(0, 230, 118, 0.1);
+    border: 1px dashed var(--brand);
+    color: var(--brand);
+    font-size: 28px;
+    font-weight: 900;
+    margin: 20px 0;
+    padding: 15px;
+    border-radius: 12px;
+}
+
+.btn-main, .btn-wa {
+    border-radius: 50px; /* Rounded Buttons */
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: 0.3s;
+}
+
+.btn-main:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(0,230,118,0.4); }
+
+/* Input Styling */
+.login-input {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid #444;
+    color: white;
+    border-radius: 50px;
+}
 
         /* Navigation */
         nav { background: var(--dark); padding: 15px; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 2000; }
@@ -199,4 +235,5 @@
     </script>
 </body>
 </html>
+
 
