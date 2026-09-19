@@ -1,29 +1,40 @@
 {
-  "vipPin": "3378",
+  "vipPin": "3390",
   "whatsappNumber": "923461263524",
   "predictionWebsite": "https://b-t-expret.vercel.app/",
   "matches": [
     {
       "id": 1,
-      "league": "T20 International",
-      "status": "LIVE",
-      "team1": { "name": "PAK", "flag": "🇵🇰", "score": "152/3 (16.0)" },
-      "team2": { "name": "IND", "flag": "🇮🇳", "score": "Yet to Bat" },
-      "winnerCall": "PAKISTAN (Non-Favorite Entry)",
-      "sixOverSession": "48-50 YES (PASS)",
-      "lambiSession": "180-185 NOT",
-      "lastUpdated": "Just now"
+      "league": "Sat, 19 Sep 2026 - Bulawayo",
+      "status": "UPCOMING",
+      "team1": { "name": "Zimbabwe Women", "flag": "🇿🇼", "isImage": false, "score": "" },
+      "team2": { "name": "South Africa Women", "flag": "🇿🇦", "isImage": false, "score": "" },
+      "winnerCall": "South Africa Women WIN",
+      "sixOverSession": "42-44 YES",
+      "lambiSession": "145-150 NOT",
+      "lastUpdated": "Today"
     },
     {
       "id": 2,
-      "league": "Big Bash League",
+      "league": "European T20 Premier League 2026",
       "status": "UPCOMING",
-      "team1": { "name": "AUS", "flag": "🇦🇺", "score": "" },
-      "team2": { "name": "ENG", "flag": "🏴󠁧󠁢󠁥󠁮󠁧󠁿", "score": "" },
-      "winnerCall": "Jackpot Match Expected",
-      "sixOverSession": "45-47 YES (Entry at 06:45 PM)",
-      "lambiSession": "165-170 NOT",
-      "lastUpdated": "Today, 07:00 PM"
+      "team1": { "name": "Belfast Wolves", "flag": "https://i.ibb.co/L5kLqZ1/belfast-logo.png", "isImage": true, "score": "" },
+      "team2": { "name": "Amsterdam Flames", "flag": "https://i.ibb.co/hK3kR5m/amsterdam-logo.png", "isImage": true, "score": "" },
+      "winnerCall": "Belfast Wolves WIN",
+      "sixOverSession": "48-50 YES",
+      "lambiSession": "165-170 YES",
+      "lastUpdated": "Today, 06:15 PM"
+    },
+    {
+      "id": 3,
+      "league": "Sri Lanka tour of England 2026",
+      "status": "UPCOMING",
+      "team1": { "name": "England", "flag": "🏴󠁧󠁢󠁥󠁮󠁧󠁿", "isImage": false, "score": "" },
+      "team2": { "name": "Sri Lanka", "flag": "🇱🇰", "isImage": false, "score": "" },
+      "winnerCall": "England WIN",
+      "sixOverSession": "52-54 YES",
+      "lambiSession": "180-185 NOT",
+      "lastUpdated": "Today, 06:30 PM"
     }
   ]
 }
