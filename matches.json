@@ -1,5 +1,4 @@
 {
-  "vipPin": "7860",
   "whatsappNumber": "923461263524",
   "predictionWebsite": "https://b-t-expret.vercel.app/",
   "matches": [
@@ -9,9 +8,6 @@
       "status": "LIVE",
       "team1": { "name": "PAK", "flag": "🇵🇰", "score": "152/3 (16.0)" },
       "team2": { "name": "IND", "flag": "🇮🇳", "score": "Yet to Bat" },
-      "winnerCall": "PAKISTAN (Non-Favorite Entry)",
-      "sixOverSession": "48-50 YES (PASS)",
-      "lambiSession": "180-185 NOT",
       "lastUpdated": "Just now"
     },
     {
@@ -20,9 +16,6 @@
       "status": "UPCOMING",
       "team1": { "name": "AUS", "flag": "🇦🇺", "score": "" },
       "team2": { "name": "ENG", "flag": "🏴󠁧󠁢󠁥󠁮󠁧󠁿", "score": "" },
-      "winnerCall": "Jackpot Match Expected",
-      "sixOverSession": "Session posted at 06:45 PM",
-      "lambiSession": "Wait for Toss",
       "lastUpdated": "Today, 07:00 PM"
     }
   ]
