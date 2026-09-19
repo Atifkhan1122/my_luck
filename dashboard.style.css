@@ -11,6 +11,100 @@ body {
     padding-bottom: 75px;
 }
 
+.hidden {
+    display: none !important;
+}
+
+/* VIP MODAL OVERLAY */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(6, 14, 26, 0.95);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    padding: 20px;
+}
+
+.modal-card {
+    background: #0f172a;
+    border: 1px solid #38bdf8;
+    border-radius: 16px;
+    padding: 24px;
+    width: 100%;
+    max-width: 380px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.lock-icon {
+    font-size: 2.5rem;
+    color: #38bdf8;
+    margin-bottom: 12px;
+}
+
+.modal-card h2 {
+    font-size: 1.3rem;
+    margin-bottom: 6px;
+}
+
+.modal-card p {
+    font-size: 0.8rem;
+    color: #94a3b8;
+    margin-bottom: 16px;
+}
+
+.modal-card input {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #334155;
+    background: #091322;
+    color: #fff;
+    text-align: center;
+    font-size: 1.1rem;
+    letter-spacing: 2px;
+    margin-bottom: 12px;
+}
+
+.pin-btn {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    border: none;
+    background: #0284c7;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.error-msg {
+    color: #ef4444;
+    font-size: 0.75rem;
+    margin-top: 10px;
+}
+
+.modal-footer {
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 1px solid #1e293b;
+    font-size: 0.8rem;
+    color: #cbd5e1;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.modal-footer a {
+    color: #25D366;
+    text-decoration: none;
+    font-weight: bold;
+}
+
 /* TOP HEADER */
 .top-nav {
     display: flex;
@@ -34,12 +128,6 @@ body {
     color: #06b6d4;
 }
 
-.user-info {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-}
-
 .whatsapp-top-btn {
     background-color: #25D366;
     color: #ffffff;
@@ -53,11 +141,6 @@ body {
     gap: 6px;
 }
 
-.profile-icon {
-    font-size: 1.5rem;
-    color: #cbd5e1;
-}
-
 /* DASHBOARD CONTAINER */
 .dashboard-container {
     padding: 15px;
@@ -65,7 +148,6 @@ body {
     margin: 0 auto;
 }
 
-/* PROMO BANNER */
 .banner {
     background: linear-gradient(135deg, #0d9488 0%, #15803d 100%);
     border-radius: 12px;
@@ -98,7 +180,6 @@ body {
     text-decoration: none;
 }
 
-/* EXTERNAL PREDICTION CARD */
 .external-prediction-card {
     background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
     border: 1px solid #38bdf8;
@@ -135,7 +216,6 @@ body {
     text-decoration: none;
 }
 
-/* SECTION TITLES */
 .section-title h3 {
     font-size: 0.95rem;
     margin-bottom: 12px;
@@ -156,7 +236,6 @@ body {
     100% { opacity: 1; }
 }
 
-/* MATCH CARDS */
 .match-card {
     background-color: #0f172a;
     border: 1px solid #1e293b;
@@ -219,7 +298,6 @@ body {
     font-size: 0.8rem;
 }
 
-/* PREDICTION BOX INSIDE CARD */
 .prediction-box {
     background-color: #091322;
     border: 1px dashed #334155;
@@ -266,7 +344,7 @@ body {
     color: #cbd5e1;
 }
 
-.bet-btn, .bet-btn-secondary {
+.bet-btn {
     background-color: #25D366;
     color: white;
     text-decoration: none;
@@ -275,11 +353,6 @@ body {
     font-weight: bold;
 }
 
-.bet-btn-secondary {
-    background-color: #334155;
-}
-
-/* BOTTOM NAVIGATION */
 .bottom-nav {
     position: fixed;
     bottom: 0;
