@@ -1,7 +1,7 @@
-// Initialize Country Code Input (Pakistan Default + All Countries)
+// Country Code Phone Input
 const phoneInputField = document.querySelector("#phone");
 const phoneInput = window.intlTelInput(phoneInputField, {
-    initialCountry: "pk", // Pakistani (+92) default
+    initialCountry: "pk",
     preferredCountries: ["pk", "in", "ae", "sa", "gb", "us"],
     separateDialCode: true,
     utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/js/utils.js",
@@ -40,3 +40,17 @@ function setupPasswordToggle(inputId, toggleId) {
 
 setupPasswordToggle('password', 'togglePassword');
 setupPasswordToggle('login-password', 'toggleLoginPassword');
+
+// DEMO OTP FUNCTION
+const otpBtn = document.querySelector('.otp-btn');
+otpBtn.addEventListener('click', () => {
+    const phoneNumber = phoneInputField.value.trim();
+    if (!phoneNumber) {
+        alert("Pehle apna phone number enter karein!");
+        return;
+    }
+    
+    // Generate Random 4-digit OTP
+    const generatedOTP = Math.floor(1000 + Math.random() * 9000);
+    alert(`[DEMO OTP]: Aapka WhatsApp Verification Code hai: ${generatedOTP}`);
+});
