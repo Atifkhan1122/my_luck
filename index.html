@@ -3,152 +3,199 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CricketKing - Predictions & Live Sessions</title>
+    <title>CricketKing - VIP Predictions & Live Sessions</title>
     <link rel="stylesheet" href="dashboard.style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
 
-    <!-- TOP HEADER -->
-    <header class="top-nav">
-        <div class="logo">CRICKET<span>KING</span></div>
-        <div class="user-info">
-            <!-- Direct WhatsApp Link Button -->
-            <a href="https://wa.me/923461263524?text=Hello%20CricketKing%20Admin%2C%20mujhe%20Match%20Prediction%20aur%20Session%20ki%20details%20chahiye" target="_blank" class="whatsapp-top-btn">
-                <i class="fa-brands fa-whatsapp"></i> WhatsApp
-            </a>
-            <div class="profile-icon">
-                <i class="fa-solid fa-circle-user"></i>
+    <!-- VIP PIN OVERLAY MODAL -->
+    <div id="vipModal" class="modal-overlay">
+        <div class="modal-card">
+            <div class="lock-icon"><i class="fa-solid fa-user-lock"></i></div>
+            <h2>VIP Member Access</h2>
+            <p>Enter VIP Access PIN to view predictions & session updates</p>
+            <input type="password" id="pinInput" placeholder="Enter PIN (e.g. 7860)" maxlength="8">
+            <button onclick="verifyPin()" class="pin-btn">Enter Dashboard</button>
+            <p id="errorMsg" class="error-msg"></p>
+            <div class="modal-footer">
+                <span>Don't have a PIN?</span>
+                <a id="getPinWhatsapp" href="#" target="_blank"><i class="fa-brands fa-whatsapp"></i> Get Access PIN</a>
             </div>
         </div>
-    </header>
+    </div>
 
-    <!-- MAIN DASHBOARD CONTENT -->
-    <main class="dashboard-container">
+    <!-- MAIN DASHBOARD (HIDDEN UNTIL PIN ENTERED) -->
+    <div id="mainDashboard" class="hidden">
         
-        <!-- PROMO & WHATSAPP BANNER -->
-        <section class="banner">
-            <div class="banner-text">
-                <h2><i class="fa-brands fa-whatsapp"></i> Join Official WhatsApp</h2>
-                <p>For Instant Match Predictions, Winner Calls & Live Sessions!</p>
-                <a href="https://wa.me/923461263524?text=Hello%20CricketKing%20Admin" target="_blank" class="banner-btn">Contact: +92 346 1263524</a>
+        <!-- TOP HEADER -->
+        <header class="top-nav">
+            <div class="logo">CRICKET<span>KING</span></div>
+            <div class="user-info">
+                <a id="headerWaBtn" href="#" target="_blank" class="whatsapp-top-btn">
+                    <i class="fa-brands fa-whatsapp"></i> WhatsApp
+                </a>
             </div>
-        </section>
+        </header>
 
-        <!-- EXTERNAL PREDICTION SITE CARD -->
-        <section class="external-prediction-card">
-            <div class="ext-content">
-                <div class="ext-title">
-                    <i class="fa-solid fa-chart-line"></i> B-T Expert Predictions
+        <!-- MAIN CONTENT CONTAINER -->
+        <main class="dashboard-container">
+            
+            <!-- PROMO & WHATSAPP BANNER -->
+            <section class="banner">
+                <div class="banner-text">
+                    <h2><i class="fa-brands fa-whatsapp"></i> Join VIP WhatsApp Group</h2>
+                    <p>Instant Session Entries, Winner Calls & Match Reports!</p>
+                    <a id="bannerWaBtn" href="#" target="_blank" class="banner-btn">Contact: +92 346 1263524</a>
                 </div>
-                <p>Check detailed match report, session entry & expert analysis.</p>
-            </div>
-            <a href="https://b-t-expret.vercel.app/" target="_blank" class="ext-btn">View Prediction Site <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-        </section>
+            </section>
 
-        <!-- LIVE MATCH & SESSION PREDICTIONS SECTION -->
-        <section class="section-title">
-            <h3><i class="fa-solid fa-circle-dot live-icon"></i> Live Match Predictions & Sessions</h3>
-        </section>
+            <!-- EXTERNAL PREDICTION SITE CARD -->
+            <section class="external-prediction-card">
+                <div class="ext-content">
+                    <div class="ext-title">
+                        <i class="fa-solid fa-chart-line"></i> B-T Expert Predictions
+                    </div>
+                    <p>Check detailed match report & expert session entries.</p>
+                </div>
+                <a id="extSiteBtn" href="#" target="_blank" class="ext-btn">
+                    View Prediction Site <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </a>
+            </section>
 
-        <!-- MATCH PREDICTION CARD 1 -->
-        <div class="match-card live-card">
-            <div class="match-header">
-                <span class="league">T20 International</span>
-                <span class="live-badge">LIVE UPDATING</span>
-            </div>
-            <div class="teams">
-                <div class="team">
-                    <span class="flag">🇵🇰</span>
-                    <span class="team-name">PAK</span>
-                    <span class="score">152/3 (16.0)</span>
-                </div>
-                <div class="vs">VS</div>
-                <div class="team">
-                    <span class="flag">🇮🇳</span>
-                    <span class="team-name">IND</span>
-                    <span class="score">Yet to Bat</span>
-                </div>
-            </div>
+            <!-- LIVE MATCHES CONTAINER -->
+            <section class="section-title">
+                <h3><i class="fa-solid fa-circle-dot live-icon"></i> Live Match Predictions & Sessions</h3>
+            </section>
 
-            <!-- PREDICTION & SESSION DETAILS BOX -->
-            <div class="prediction-box">
-                <div class="pred-item">
-                    <span class="pred-label"><i class="fa-solid fa-trophy"></i> Match Winner Call:</span>
-                    <span class="pred-value winner">PAKISTAN (Non-Favorite Entry)</span>
-                </div>
-                <div class="pred-item">
-                    <span class="pred-label"><i class="fa-solid fa-bolt"></i> 6 Overs Session:</span>
-                    <span class="pred-value session">48-50 YES (Pass)</span>
-                </div>
-                <div class="pred-item">
-                    <span class="pred-label"><i class="fa-solid fa-fire"></i> 20 Overs Lambi:</span>
-                    <span class="pred-value session">180-185 NOT</span>
-                </div>
+            <div id="matchesList">
+                <!-- Matches JSON se auto-load hongay -->
             </div>
 
-            <div class="match-footer">
-                <span>Updated 2 mins ago</span>
-                <a href="https://wa.me/923461263524?text=PAK%20vs%20IND%20Match%20Session%20Update" target="_blank" class="bet-btn">Get Live WhatsApp Entry</a>
-            </div>
-        </div>
+        </main>
 
-        <!-- UPCOMING PREDICTION CARD 2 -->
-        <div class="match-card">
-            <div class="match-header">
-                <span class="league">Big Bash League</span>
-                <span class="time">Today, 07:00 PM</span>
-            </div>
-            <div class="teams">
-                <div class="team">
-                    <span class="flag">🇦🇺</span>
-                    <span class="team-name">AUS</span>
-                </div>
-                <div class="vs">VS</div>
-                <div class="team">
-                    <span class="flag">🏴󠁧󠁢󠁥󠁮󠁧󠁿</span>
-                    <span class="team-name">ENG</span>
-                </div>
-            </div>
+        <!-- BOTTOM NAVIGATION BAR -->
+        <nav class="bottom-nav">
+            <a href="#" class="nav-item active">
+                <i class="fa-solid fa-house"></i>
+                <span>Home</span>
+            </a>
+            <a id="navExtSite" href="#" target="_blank" class="nav-item">
+                <i class="fa-solid fa-chart-line"></i>
+                <span>Predictions</span>
+            </a>
+            <a id="navWa" href="#" target="_blank" class="nav-item">
+                <i class="fa-brands fa-whatsapp"></i>
+                <span>WhatsApp</span>
+            </a>
+        </nav>
 
-            <div class="prediction-box">
-                <div class="pred-item">
-                    <span class="pred-label"><i class="fa-solid fa-trophy"></i> Match Report:</span>
-                    <span class="pred-value winner">Jackpot Match Expected</span>
-                </div>
-                <div class="pred-item">
-                    <span class="pred-label"><i class="fa-solid fa-clock"></i> Session Update:</span>
-                    <span class="pred-value">Open session will be posted at 06:45 PM</span>
-                </div>
-            </div>
+    </div>
 
-            <div class="match-footer">
-                <span>Status: Scheduled</span>
-                <a href="https://b-t-expret.vercel.app/" target="_blank" class="bet-btn-secondary">Check Full Report</a>
-            </div>
-        </div>
+    <!-- JAVASCRIPT FOR JSON FETCHING & PIN VALIDATION -->
+    <script>
+        let configData = null;
 
-    </main>
+        // Load JSON data on startup
+        async function loadDashboardData() {
+            try {
+                const response = await fetch('matches.json');
+                configData = await response.json();
+                
+                // Set WhatsApp links dynamically
+                const waLink = `https://wa.me/${configData.whatsappNumber}?text=Hello%20CricketKing%20Admin%2C%20mujhe%20VIP%20Access%20PIN%20aur%20Predictions%20chahiye`;
+                document.getElementById('getPinWhatsapp').href = waLink;
+                document.getElementById('headerWaBtn').href = waLink;
+                document.getElementById('bannerWaBtn').href = waLink;
+                document.getElementById('navWa').href = waLink;
 
-    <!-- BOTTOM NAVIGATION BAR -->
-    <nav class="bottom-nav">
-        <a href="#" class="nav-item active">
-            <i class="fa-solid fa-house"></i>
-            <span>Home</span>
-        </a>
-        <a href="https://b-t-expret.vercel.app/" target="_blank" class="nav-item">
-            <i class="fa-solid fa-chart-line"></i>
-            <span>Predictions</span>
-        </a>
-        <a href="https://wa.me/923461263524" target="_blank" class="nav-item">
-            <i class="fa-brands fa-whatsapp"></i>
-            <span>WhatsApp</span>
-        </a>
-        <a href="#" class="nav-item">
-            <i class="fa-solid fa-user"></i>
-            <span>Account</span>
-        </a>
-    </nav>
+                // Set External Prediction Site links
+                document.getElementById('extSiteBtn').href = configData.predictionWebsite;
+                document.getElementById('navExtSite').href = configData.predictionWebsite;
 
+                // Check saved PIN session
+                if (sessionStorage.getItem('vip_authenticated') === 'true') {
+                    showDashboard();
+                }
+            } catch (err) {
+                console.error("Error loading JSON data:", err);
+            }
+        }
+
+        // Verify Access PIN
+        function verifyPin() {
+            const enteredPin = document.getElementById('pinInput').value.trim();
+            const errorMsg = document.getElementById('errorMsg');
+
+            if (configData && enteredPin === configData.vipPin) {
+                sessionStorage.setItem('vip_authenticated', 'true');
+                showDashboard();
+            } else {
+                errorMsg.innerText = "Incorrect PIN! Please contact WhatsApp for valid PIN.";
+            }
+        }
+
+        // Render Dashboard Content
+        function showDashboard() {
+            document.getElementById('vipModal').style.display = 'none';
+            document.getElementById('mainDashboard').classList.remove('hidden');
+            renderMatches();
+        }
+
+        // Render Matches from JSON
+        function renderMatches() {
+            const container = document.getElementById('matchesList');
+            container.innerHTML = '';
+
+            configData.matches.forEach(match => {
+                const waMatchBtn = `https://wa.me/${configData.whatsappNumber}?text=Match%20Update%20Query%20for%20${encodeURIComponent(match.team1.name + ' vs ' + match.team2.name)}`;
+                
+                const card = document.createElement('div');
+                card.className = `match-card ${match.status === 'LIVE' ? 'live-card' : ''}`;
+                card.innerHTML = `
+                    <div class="match-header">
+                        <span class="league">${match.league}</span>
+                        <span class="${match.status === 'LIVE' ? 'live-badge' : 'time'}">${match.status === 'LIVE' ? 'LIVE UPDATING' : match.lastUpdated}</span>
+                    </div>
+                    <div class="teams">
+                        <div class="team">
+                            <span class="flag">${match.team1.flag}</span>
+                            <span class="team-name">${match.team1.name}</span>
+                            <span class="score">${match.team1.score}</span>
+                        </div>
+                        <div class="vs">VS</div>
+                        <div class="team">
+                            <span class="flag">${match.team2.flag}</span>
+                            <span class="team-name">${match.team2.name}</span>
+                            <span class="score">${match.team2.score}</span>
+                        </div>
+                    </div>
+
+                    <div class="prediction-box">
+                        <div class="pred-item">
+                            <span class="pred-label"><i class="fa-solid fa-trophy"></i> Winner Call:</span>
+                            <span class="pred-value winner">${match.winnerCall}</span>
+                        </div>
+                        <div class="pred-item">
+                            <span class="pred-label"><i class="fa-solid fa-bolt"></i> 6 Overs Session:</span>
+                            <span class="pred-value session">${match.sixOverSession}</span>
+                        </div>
+                        <div class="pred-item">
+                            <span class="pred-label"><i class="fa-solid fa-fire"></i> Lambi Session:</span>
+                            <span class="pred-value session">${match.lambiSession}</span>
+                        </div>
+                    </div>
+
+                    <div class="match-footer">
+                        <span>Updated: ${match.lastUpdated}</span>
+                        <a href="${waMatchBtn}" target="_blank" class="bet-btn">Get WhatsApp Entry</a>
+                    </div>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        window.onload = loadDashboardData;
+    </script>
 </body>
 </html>
