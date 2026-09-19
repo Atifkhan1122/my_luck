@@ -1,0 +1,215 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+body {
+    background: radial-gradient(circle at center, #0f172a 0%, #020617 100%);
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 15px;
+}
+
+.background-overlay {
+    width: 100%;
+    max-width: 420px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.header .logo {
+    font-size: 2.3rem;
+    font-weight: 900;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+    color: #38bdf8;
+    text-transform: uppercase;
+}
+
+.header .logo span {
+    color: #06b6d4;
+}
+
+.form-card {
+    background-color: #091322;
+    border: 1px solid #1e293b;
+    border-radius: 16px;
+    padding: 30px 22px 20px 22px;
+    width: 100%;
+    position: relative;
+    box-shadow: 0 20px 30px rgba(0, 0, 0, 0.6);
+}
+
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: #ffffff;
+    color: #0f172a;
+    border: none;
+    border-radius: 50%;
+    width: 28px;
+    height: 28px;
+    font-size: 20px;
+    line-height: 1;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    z-index: 10;
+}
+
+.form-content h2 {
+    text-align: center;
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 6px;
+}
+
+.subtitle {
+    text-align: center;
+    color: #94a3b8;
+    font-size: 0.85rem;
+    margin-bottom: 22px;
+}
+
+.input-group {
+    margin-bottom: 16px;
+}
+
+.input-group label {
+    display: flex;
+    align-items: center;
+    font-size: 0.85rem;
+    margin-bottom: 6px;
+    color: #cbd5e1;
+    font-weight: 500;
+}
+
+.whatsapp-icon {
+    color: #25D366;
+    margin-left: 6px;
+    font-size: 1rem;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px 14px;
+    border-radius: 8px;
+    border: 1px solid #334155;
+    background-color: #e2e8f0;
+    color: #0f172a;
+    font-size: 0.95rem;
+    outline: none;
+    font-weight: 500;
+}
+
+.input-group input:focus {
+    border-color: #38bdf8;
+    box-shadow: 0 0 0 2px rgba(56, 189, 248, 0.2);
+}
+
+.password-wrapper {
+    position: relative;
+}
+
+.password-wrapper i {
+    position: absolute;
+    right: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #64748b;
+    cursor: pointer;
+    font-size: 1.1rem;
+}
+
+.phone-wrapper {
+    display: flex;
+    gap: 8px;
+    width: 100%;
+}
+
+/* Fix intl-tel-input styling */
+.iti {
+    width: 100%;
+}
+
+.iti__country-list {
+    background-color: #1e293b;
+    color: #ffffff;
+    border: 1px solid #334155;
+    border-radius: 8px;
+    max-height: 200px;
+}
+
+.iti__selected-flag {
+    background-color: #cbd5e1;
+    border-radius: 8px 0 0 8px;
+}
+
+.otp-btn {
+    background-color: #0f766e;
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    padding: 0 16px;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 0.85rem;
+    white-space: nowrap;
+    transition: background 0.2s;
+}
+
+.otp-btn:hover {
+    background-color: #14b8a6;
+}
+
+.switch-text {
+    text-align: center;
+    font-size: 0.85rem;
+    margin: 18px 0;
+    color: #cbd5e1;
+}
+
+.switch-text a {
+    color: #ffffff;
+    text-decoration: underline;
+    font-weight: 600;
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 13px;
+    background-color: #0e7490;
+    color: #ffffff;
+    border: none;
+    border-radius: 25px;
+    font-weight: 700;
+    font-size: 1rem;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.submit-btn:hover {
+    background-color: #06b6d4;
+}
+
+.disclaimer {
+    margin-top: 22px;
+    font-size: 0.68rem;
+    color: #64748b;
+    text-align: center;
+    line-height: 1.4;
+}
+
+.hidden {
+    display: none !important;
+}
