@@ -3,97 +3,152 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CricketKing - Sign Up / Login</title>
-    <link rel="stylesheet" href="style.css">
-    <!-- Font Awesome Icons -->
+    <title>CricketKing - Predictions & Live Sessions</title>
+    <link rel="stylesheet" href="dashboard.style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Country Phone Input CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/css/intlTelInput.css">
 </head>
 <body>
 
-    <div class="background-overlay">
-        <!-- Logo Header -->
-        <header class="header">
-            <h1 class="logo">CRICKET<span>KING</span></h1>
-        </header>
-
-        <!-- Main Form Card -->
-        <div class="form-card">
-            <button class="close-btn" aria-label="Close">&times;</button>
-
-            <!-- SIGN UP FORM -->
-            <div id="signup-form" class="form-content">
-                <h2>Sign Up</h2>
-                <p class="subtitle">Create your account by following these simple steps.</p>
-
-                <form onsubmit="return false;">
-                    <div class="input-group">
-                        <label for="username">Username *</label>
-                        <input type="text" id="username" placeholder="Enter username" required>
-                    </div>
-
-                    <div class="input-group">
-                        <label for="password">Password *</label>
-                        <div class="password-wrapper">
-                            <input type="password" id="password" placeholder="Enter Password" required>
-                            <i class="fa-regular fa-eye-slash" id="togglePassword"></i>
-                        </div>
-                    </div>
-
-                    <div class="input-group">
-                        <label for="campaign">Campaign Code</label>
-                        <input type="text" id="campaign" value="vipbonuss">
-                    </div>
-
-                    <div class="input-group">
-                        <label for="phone">Phone Number / WhatsApp <i class="fa-brands fa-whatsapp whatsapp-icon"></i></label>
-                        <div class="phone-wrapper">
-                            <input type="tel" id="phone" placeholder="300 1234567" required>
-                            <button type="button" class="otp-btn">Send OTP</button>
-                        </div>
-                    </div>
-
-                    <p class="switch-text">Have an account? <a href="#" id="show-login">Sign in</a></p>
-
-                    <button type="submit" class="submit-btn">SIGN UP</button>
-                </form>
-            </div>
-
-            <!-- LOGIN FORM (Initially Hidden) -->
-            <div id="login-form" class="form-content hidden">
-                <h2>Sign In</h2>
-                <p class="subtitle">Welcome back! Please login to your account.</p>
-
-                <form onsubmit="return false;">
-                    <div class="input-group">
-                        <label for="login-username">Username *</label>
-                        <input type="text" id="login-username" placeholder="Enter username" required>
-                    </div>
-
-                    <div class="input-group">
-                        <label for="login-password">Password *</label>
-                        <div class="password-wrapper">
-                            <input type="password" id="login-password" placeholder="Enter Password" required>
-                            <i class="fa-regular fa-eye-slash" id="toggleLoginPassword"></i>
-                        </div>
-                    </div>
-
-                    <p class="switch-text">Don't have an account? <a href="#" id="show-signup">Sign up</a></p>
-
-                    <button type="submit" class="submit-btn">SIGN IN</button>
-                </form>
-            </div>
-
-            <!-- Disclaimer -->
-            <div class="disclaimer">
-                Disclaimer: Please note that Gambling involves a financial risk and could be addictive over time if not practised within limits. Only 18+ people should use the services.
+    <!-- TOP HEADER -->
+    <header class="top-nav">
+        <div class="logo">CRICKET<span>KING</span></div>
+        <div class="user-info">
+            <!-- Direct WhatsApp Link Button -->
+            <a href="https://wa.me/923461263524?text=Hello%20CricketKing%20Admin%2C%20mujhe%20Match%20Prediction%20aur%20Session%20ki%20details%20chahiye" target="_blank" class="whatsapp-top-btn">
+                <i class="fa-brands fa-whatsapp"></i> WhatsApp
+            </a>
+            <div class="profile-icon">
+                <i class="fa-solid fa-circle-user"></i>
             </div>
         </div>
-    </div>
+    </header>
 
-    <!-- Country Phone Input JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/js/intlTelInput.min.js"></script>
-    <script src="script.js"></script>
+    <!-- MAIN DASHBOARD CONTENT -->
+    <main class="dashboard-container">
+        
+        <!-- PROMO & WHATSAPP BANNER -->
+        <section class="banner">
+            <div class="banner-text">
+                <h2><i class="fa-brands fa-whatsapp"></i> Join Official WhatsApp</h2>
+                <p>For Instant Match Predictions, Winner Calls & Live Sessions!</p>
+                <a href="https://wa.me/923461263524?text=Hello%20CricketKing%20Admin" target="_blank" class="banner-btn">Contact: +92 346 1263524</a>
+            </div>
+        </section>
+
+        <!-- EXTERNAL PREDICTION SITE CARD -->
+        <section class="external-prediction-card">
+            <div class="ext-content">
+                <div class="ext-title">
+                    <i class="fa-solid fa-chart-line"></i> B-T Expert Predictions
+                </div>
+                <p>Check detailed match report, session entry & expert analysis.</p>
+            </div>
+            <a href="https://b-t-expret.vercel.app/" target="_blank" class="ext-btn">View Prediction Site <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+        </section>
+
+        <!-- LIVE MATCH & SESSION PREDICTIONS SECTION -->
+        <section class="section-title">
+            <h3><i class="fa-solid fa-circle-dot live-icon"></i> Live Match Predictions & Sessions</h3>
+        </section>
+
+        <!-- MATCH PREDICTION CARD 1 -->
+        <div class="match-card live-card">
+            <div class="match-header">
+                <span class="league">T20 International</span>
+                <span class="live-badge">LIVE UPDATING</span>
+            </div>
+            <div class="teams">
+                <div class="team">
+                    <span class="flag">🇵🇰</span>
+                    <span class="team-name">PAK</span>
+                    <span class="score">152/3 (16.0)</span>
+                </div>
+                <div class="vs">VS</div>
+                <div class="team">
+                    <span class="flag">🇮🇳</span>
+                    <span class="team-name">IND</span>
+                    <span class="score">Yet to Bat</span>
+                </div>
+            </div>
+
+            <!-- PREDICTION & SESSION DETAILS BOX -->
+            <div class="prediction-box">
+                <div class="pred-item">
+                    <span class="pred-label"><i class="fa-solid fa-trophy"></i> Match Winner Call:</span>
+                    <span class="pred-value winner">PAKISTAN (Non-Favorite Entry)</span>
+                </div>
+                <div class="pred-item">
+                    <span class="pred-label"><i class="fa-solid fa-bolt"></i> 6 Overs Session:</span>
+                    <span class="pred-value session">48-50 YES (Pass)</span>
+                </div>
+                <div class="pred-item">
+                    <span class="pred-label"><i class="fa-solid fa-fire"></i> 20 Overs Lambi:</span>
+                    <span class="pred-value session">180-185 NOT</span>
+                </div>
+            </div>
+
+            <div class="match-footer">
+                <span>Updated 2 mins ago</span>
+                <a href="https://wa.me/923461263524?text=PAK%20vs%20IND%20Match%20Session%20Update" target="_blank" class="bet-btn">Get Live WhatsApp Entry</a>
+            </div>
+        </div>
+
+        <!-- UPCOMING PREDICTION CARD 2 -->
+        <div class="match-card">
+            <div class="match-header">
+                <span class="league">Big Bash League</span>
+                <span class="time">Today, 07:00 PM</span>
+            </div>
+            <div class="teams">
+                <div class="team">
+                    <span class="flag">🇦🇺</span>
+                    <span class="team-name">AUS</span>
+                </div>
+                <div class="vs">VS</div>
+                <div class="team">
+                    <span class="flag">🏴󠁧󠁢󠁥󠁮󠁧󠁿</span>
+                    <span class="team-name">ENG</span>
+                </div>
+            </div>
+
+            <div class="prediction-box">
+                <div class="pred-item">
+                    <span class="pred-label"><i class="fa-solid fa-trophy"></i> Match Report:</span>
+                    <span class="pred-value winner">Jackpot Match Expected</span>
+                </div>
+                <div class="pred-item">
+                    <span class="pred-label"><i class="fa-solid fa-clock"></i> Session Update:</span>
+                    <span class="pred-value">Open session will be posted at 06:45 PM</span>
+                </div>
+            </div>
+
+            <div class="match-footer">
+                <span>Status: Scheduled</span>
+                <a href="https://b-t-expret.vercel.app/" target="_blank" class="bet-btn-secondary">Check Full Report</a>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- BOTTOM NAVIGATION BAR -->
+    <nav class="bottom-nav">
+        <a href="#" class="nav-item active">
+            <i class="fa-solid fa-house"></i>
+            <span>Home</span>
+        </a>
+        <a href="https://b-t-expret.vercel.app/" target="_blank" class="nav-item">
+            <i class="fa-solid fa-chart-line"></i>
+            <span>Predictions</span>
+        </a>
+        <a href="https://wa.me/923461263524" target="_blank" class="nav-item">
+            <i class="fa-brands fa-whatsapp"></i>
+            <span>WhatsApp</span>
+        </a>
+        <a href="#" class="nav-item">
+            <i class="fa-solid fa-user"></i>
+            <span>Account</span>
+        </a>
+    </nav>
+
 </body>
 </html>
