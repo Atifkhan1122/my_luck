@@ -3,11 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CricketKing - Live Matches & Session Updates</title>
+    <title>CricketKing - VIP Predictions & Sessions</title>
     <link rel="stylesheet" href="dashboard.style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
+
+    <!-- VIP PIN MODAL OVERLAY -->
+    <div id="vipModal" class="modal-overlay hidden">
+        <div class="modal-card">
+            <div class="lock-icon"><i class="fa-solid fa-user-lock"></i></div>
+            <h2>Unlock VIP Predictions</h2>
+            <p>Enter VIP Access PIN to reveal reports & session entries</p>
+            <input type="password" id="pinInput" placeholder="Enter PIN (e.g. 7860)" maxlength="8">
+            <button onclick="verifyPin()" class="pin-btn">Unlock Now</button>
+            <p id="errorMsg" class="error-msg"></p>
+            <div class="modal-footer">
+                <span>Don't have a VIP PIN?</span>
+                <a id="getPinWhatsapp" href="#" target="_blank"><i class="fa-brands fa-whatsapp"></i> Get PIN on WhatsApp</a>
+            </div>
+            <button onclick="closeModal()" class="close-btn">Close</button>
+        </div>
+    </div>
 
     <!-- TOP HEADER -->
     <header class="top-nav">
@@ -19,14 +36,14 @@
         </div>
     </header>
 
-    <!-- MAIN CONTENT CONTAINER -->
+    <!-- MAIN DASHBOARD CONTENT -->
     <main class="dashboard-container">
         
-        <!-- PROMO & WHATSAPP BANNER -->
+        <!-- PROMO BANNER -->
         <section class="banner">
             <div class="banner-text">
                 <h2><i class="fa-brands fa-whatsapp"></i> Join Official WhatsApp</h2>
-                <p>Instant Live Match Updates & Direct Session Entries!</p>
+                <p>Instant Session Entries & Direct Match Predictions!</p>
                 <a id="bannerWaBtn" href="#" target="_blank" class="banner-btn">Contact: +92 346 1263524</a>
             </div>
         </section>
@@ -37,7 +54,7 @@
                 <div class="ext-title">
                     <i class="fa-solid fa-chart-line"></i> B-T Expert Predictions
                 </div>
-                <p>Click below to unlock live winner calls & session reports.</p>
+                <p>Check detailed match reports & session analysis on site.</p>
             </div>
             <a id="extSiteBtn" href="https://b-t-expret.vercel.app/" target="_blank" class="ext-btn">
                 Open Prediction Site <i class="fa-solid fa-arrow-up-right-from-square"></i>
@@ -46,11 +63,11 @@
 
         <!-- LIVE MATCHES CONTAINER -->
         <section class="section-title">
-            <h3><i class="fa-solid fa-circle-dot live-icon"></i> Live Matches & Sessions</h3>
+            <h3><i class="fa-solid fa-circle-dot live-icon"></i> Live Matches & Session Reports</h3>
         </section>
 
         <div id="matchesList">
-            <!-- Matches JSON se auto-load hongay -->
+            <!-- Matches auto-rendered via JavaScript -->
         </div>
 
     </main>
@@ -71,28 +88,53 @@
         </a>
     </nav>
 
-    <!-- JAVASCRIPT FOR JSON FETCHING -->
     <script>
         let configData = null;
+        let isUnlocked = false;
 
         async function loadDashboardData() {
             try {
                 const response = await fetch('matches.json');
                 configData = await response.json();
                 
-                // Set WhatsApp links
-                const waLink = `https://wa.me/${configData.whatsappNumber}?text=Hello%20CricketKing%20Admin%2C%20mujhe%20Match%20Predictions%20de do`;
+                const waLink = `https://wa.me/${configData.whatsappNumber}?text=Hello%20CricketKing%20Admin%2C%20mujhe%20VIP%20Access%20PIN%20chahiye`;
+                document.getElementById('getPinWhatsapp').href = waLink;
                 document.getElementById('headerWaBtn').href = waLink;
                 document.getElementById('bannerWaBtn').href = waLink;
                 document.getElementById('navWa').href = waLink;
 
-                // Set Website links
                 document.getElementById('extSiteBtn').href = configData.predictionWebsite;
                 document.getElementById('navExtSite').href = configData.predictionWebsite;
+
+                if (sessionStorage.getItem('vip_authenticated') === 'true') {
+                    isUnlocked = true;
+                }
 
                 renderMatches();
             } catch (err) {
                 console.error("Error loading JSON data:", err);
+            }
+        }
+
+        function openModal() {
+            document.getElementById('vipModal').classList.remove('hidden');
+        }
+
+        function closeModal() {
+            document.getElementById('vipModal').classList.add('hidden');
+        }
+
+        function verifyPin() {
+            const enteredPin = document.getElementById('pinInput').value.trim();
+            const errorMsg = document.getElementById('errorMsg');
+
+            if (configData && enteredPin === configData.vipPin) {
+                sessionStorage.setItem('vip_authenticated', 'true');
+                isUnlocked = true;
+                closeModal();
+                renderMatches();
+            } else {
+                errorMsg.innerText = "Incorrect PIN! Contact WhatsApp for valid VIP PIN.";
             }
         }
 
@@ -103,6 +145,9 @@
             configData.matches.forEach(match => {
                 const card = document.createElement('div');
                 card.className = `match-card ${match.status === 'LIVE' ? 'live-card' : ''}`;
+                
+                const blurClass = isUnlocked ? '' : 'report-blurred';
+
                 card.innerHTML = `
                     <div class="match-header">
                         <span class="league">${match.league}</span>
@@ -122,33 +167,27 @@
                         </div>
                     </div>
 
-                    <!-- BLURRED PREDICTION BOX -->
-                    <div class="prediction-box blur-container">
-                        <div class="blurred-content">
-                            <div class="pred-item">
-                                <span class="pred-label"><i class="fa-solid fa-trophy"></i> Winner Call:</span>
-                                <span class="pred-value">PAKISTAN (Non-Favorite Entry)</span>
-                            </div>
-                            <div class="pred-item">
-                                <span class="pred-label"><i class="fa-solid fa-bolt"></i> 6 Overs Session:</span>
-                                <span class="pred-value">48-50 YES (PASS)</span>
-                            </div>
-                            <div class="pred-item">
-                                <span class="pred-label"><i class="fa-solid fa-fire"></i> Lambi Session:</span>
-                                <span class="pred-value">180-185 NOT</span>
-                            </div>
+                    <div class="prediction-box">
+                        <div class="pred-item">
+                            <span class="pred-label"><i class="fa-solid fa-trophy"></i> Winner Call:</span>
+                            <span class="pred-value ${blurClass}">${match.winnerCall}</span>
                         </div>
-
-                        <!-- OVERLAY BUTTON TO REDIRECT TO WEBSITE -->
-                        <a href="${configData.predictionWebsite}" target="_blank" class="unlock-overlay">
-                            <i class="fa-solid fa-lock"></i>
-                            <span>Click to Unlock Predictions</span>
-                        </a>
+                        <div class="pred-item">
+                            <span class="pred-label"><i class="fa-solid fa-bolt"></i> 6 Overs Session:</span>
+                            <span class="pred-value ${blurClass}">${match.sixOverSession}</span>
+                        </div>
+                        <div class="pred-item">
+                            <span class="pred-label"><i class="fa-solid fa-fire"></i> Lambi Session:</span>
+                            <span class="pred-value ${blurClass}">${match.lambiSession}</span>
+                        </div>
                     </div>
 
                     <div class="match-footer">
-                        <span>Updated: ${match.lastUpdated}</span>
-                        <a href="${configData.predictionWebsite}" target="_blank" class="bet-btn">View On Website</a>
+                        <span>Status: ${match.status}</span>
+                        ${isUnlocked 
+                            ? `<a href="https://wa.me/${configData.whatsappNumber}" target="_blank" class="bet-btn unlocked-btn">WhatsApp Entry</a>`
+                            : `<button onclick="openModal()" class="bet-btn lock-btn"><i class="fa-solid fa-key"></i> Enter VIP PIN</button>`
+                        }
                     </div>
                 `;
                 container.appendChild(card);
